@@ -60,18 +60,18 @@ a {
 
 .container-home {
 	display: grid;
-	grid-template-rows: min-content;
-	grid-template-columns:
-		[start] minmax(8rem, 1fr)
-		[center-start] repeat(
-			6,
-			[col-start] minmax(min-content, 14rem) [col-end]
-		)
-		[center-end] 1fr minmax(6rem, 1fr) [end];
+	grid-template:
+		[row1-start] 'hero hero hero hero' min-content [row1-end]
+		[row2-start] 'banner-top banner-top banner-top banner-top' min-content [row2-end]
+		[row3-start] 'main main main main' min-content [row3-end]
+		[row4-start] 'main main main main' min-content [row4-end]
+		[row5-start] 'banner-bottom banner-bottom banner-bottom banner-bottom' min-content [row5-end]
+		[row6-start] 'banner-bottom banner-bottom banner-bottom banner-bottom' min-content [row6-end];
 }
 
 h1 {
-	font-size: 6rem;
+	font-family: $font-primary;
+	font-size: 6.5rem;
 }
 
 .btn-primary {

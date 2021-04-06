@@ -1,0 +1,37 @@
+@import '../../../App.scss';
+
+.hero {
+	grid-area: hero;
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-template-rows: 90vh;
+	align-items: center;
+	justify-items: center;
+
+	&__content {
+		grid-column: 1 / span 6;
+
+		h1 {
+			margin-bottom: 2rem;
+		}
+
+		p {
+			font-size: 2rem;
+			font-weight: 500;
+			margin-bottom: 3rem;
+			padding-right: 10rem;
+		}
+	}
+
+	&__get-started {
+		margin-right: 2rem;
+	}
+
+	&__learn-more {
+	}
+
+	&__img {
+		height: 100%;
+		grid-column: 7 / span 6;
+	}
+}
