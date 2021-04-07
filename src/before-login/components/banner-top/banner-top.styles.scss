@@ -1,0 +1,43 @@
+@import '../../../App.scss';
+
+.banner-top {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: $color-primary-dark;
+	margin-top: 8rem;
+	height: 30rem;
+
+	&::after {
+		content: '';
+		position: absolute;
+		height: 25%;
+		width: 100%;
+		background-image: url(../../assets/high-res/banner-border.png);
+		background-repeat: no-repeat;
+		transform: translate(0, 53%);
+
+		@media only screen and (max-width: $bp-large) {
+			transform: translate(0, 45%);
+		}
+
+		@media only screen and (max-width: $bp-largest) {
+			transform: translate(0, 48%);
+		}
+	}
+
+	&__item {
+		text-align: center;
+		color: #fff;
+		z-index: 1000;
+
+		p {
+			font-size: 2rem;
+			padding: 1rem 25rem;
+
+			@media only screen and (max-width: $bp-large) {
+				padding: 1rem 8rem;
+			}
+		}
+	}
+}

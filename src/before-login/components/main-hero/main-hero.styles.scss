@@ -23,18 +23,28 @@
 	}
 
 	&__icon {
-		width: 30%;
-		transform: translate(0, 10%);
+		width: 15rem;
+		transform: translate(0, 18%);
 	}
 
 	&__get-started {
 		margin-right: 4rem;
 	}
 
-	&__learn-more {
+	&__img {
+		height: 55rem;
+		width: auto;
 	}
 
-	&__img {
-		height: 60rem;
+	@media only screen and (max-width: $bp-medium) {
+		flex-wrap: wrap;
+		justify-content: center;
+		text-align: center;
+	}
+
+	@media only screen and (max-width: $bp-large) {
+		&__icon {
+			transform: translate(0, 28%);
+		}
 	}
 }
