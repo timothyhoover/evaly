@@ -8,7 +8,7 @@ import './main-section.styles.scss';
 const MainSection = () => (
 	<div className="main-section">
 		<div className="main-section__row-1">
-			<img src={img1} className="main-section__img" />
+			<img src={img1} className="main-section__img-1" />
 			<div className="main-section__text">
 				<h3>
 					We give you a solid foundation for what the Cambridge exam
@@ -24,10 +24,10 @@ const MainSection = () => (
 					evaluator
 				</p>
 			</div>
-			<img src={img2} className="main-section__img" />
+			<img src={img2} className="main-section__img-2" />
 		</div>
 		<div className="main-section__row-3">
-			<img src={img3} className="main-section__img" />
+			<img src={img3} className="main-section__img-3" />
 			<div className="main-section__text">
 				<h4>Start Practicing</h4>
 				<p>
@@ -43,7 +43,7 @@ const MainSection = () => (
 					Use our life-like mock exams to prepare and rock that test!
 				</p>
 			</div>
-			<img src={img4} className="main-section__img" />
+			<img src={img4} className="main-section__img-4" />
 		</div>
 	</div>
 );

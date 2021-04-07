@@ -10,7 +10,7 @@
 		h1 {
 			margin-bottom: 2rem;
 			line-height: 1.7;
-			white-space: nowrap;
+			white-space: nowrap; // BUG This is the responsive img problem
 		}
 
 		p {
@@ -20,8 +20,17 @@
 			padding-right: 10rem;
 			line-height: 1.8;
 		}
+
+		@media only screen and (max-width: $bp-medium) {
+			margin-bottom: 4rem;
+
+			p {
+				padding: 0;
+			}
+		}
 	}
 
+	// BUG Button hover effect showing in dev tools, but not working
 	&__icon {
 		width: 15rem;
 		transform: translate(0, 18%);
