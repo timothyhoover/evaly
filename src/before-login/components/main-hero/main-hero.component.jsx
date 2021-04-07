@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
+import HeroImg from '../../assets/high-res/home-hero.png';
 import './main-hero.styles.scss';
 
 const MainHero = () => (
@@ -27,11 +28,7 @@ const MainHero = () => (
 			</button>
 		</div>
 
-		<img
-			className="hero__img"
-			src="img/high-res/home-hero.png"
-			alt="main"
-		/>
+		<img className="hero__img" src={HeroImg} alt="main" />
 	</div>
 );
 

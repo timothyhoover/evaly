@@ -73,6 +73,23 @@ h2 {
 	font-size: 4.5rem;
 }
 
+h3 {
+	font-family: $font-secondary;
+	font-weight: 500;
+	font-size: 2rem;
+}
+
+h4 {
+	font-family: $font-primary;
+	font-size: 4rem;
+}
+
+p {
+	font-family: $font-secondary;
+	font-weight: 400;
+	font-size: 1.8rem;
+}
+
 .btn-primary {
 	background-color: $color-primary;
 	color: #fff;
@@ -113,5 +130,22 @@ h2 {
 		padding: 1rem 4rem;
 		cursor: pointer;
 		transition: all 0.2s;
+	}
+}
+
+.btn-tertiary {
+	background-color: $color-red;
+	color: #fff;
+	border: none;
+	border-radius: 1rem;
+	font-family: $font-secondary;
+	font-size: 1.5rem;
+	font-weight: 500;
+	padding: 1rem 4rem;
+	cursor: pointer;
+	transition: all 0.2s;
+
+	&:hover {
+		filter: brightness(110%);
 	}
 }

@@ -1,0 +1,82 @@
+@import '../../../App.scss';
+
+.main-section {
+	margin-top: 10rem;
+	padding: 0 15rem;
+
+	// &:not(:last-child) {
+	// 	margin-bottom: -10rem;
+	// 	border-bottom: 5px solid red;
+	// }
+
+	&__row-1 {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		height: auto;
+		margin-bottom: -5rem;
+
+		@media only screen and (max-width: $bp-medium) {
+			justify-content: center;
+		}
+	}
+
+	&__row-2 {
+		display: flex;
+		flex-wrap: wrap-reverse;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		height: auto;
+		margin-bottom: -5rem;
+
+		@media only screen and (max-width: $bp-medium) {
+			justify-content: center;
+		}
+	}
+
+	&__row-3 {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		height: auto;
+		margin-bottom: -5rem;
+
+		@media only screen and (max-width: $bp-medium) {
+			justify-content: center;
+		}
+	}
+
+	&__row-4 {
+		display: flex;
+		flex-wrap: wrap-reverse;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		height: auto;
+
+		@media only screen and (max-width: $bp-medium) {
+			justify-content: center;
+		}
+	}
+
+	&__img {
+		height: 50rem;
+		width: auto;
+	}
+
+	&__text {
+		width: 39%;
+		text-align: left;
+
+		@media only screen and (max-width: $bp-medium) {
+			text-align: center;
+			margin: 5rem 0;
+			width: 70%;
+		}
+	}
+}
