@@ -23,9 +23,11 @@ const MainHero = () => (
 			<button className="btn-secondary hero__get-started">
 				Get Started
 			</button>
-			<button className="btn-secondary hero__learn-more">
-				Learn More
-			</button>
+			<Link to="/learn-more">
+				<button className="btn-secondary hero__learn-more">
+					Learn More
+				</button>
+			</Link>
 		</div>
 
 		<img className="hero__img" src={HeroImg} alt="main" />

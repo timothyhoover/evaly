@@ -8,7 +8,10 @@ const Header = () => (
 			<div className="header__logo">evaly</div>
 		</Link>
 		<div className="header__btn-container">
-			<button className="btn-primary header__log-in">Log in</button>
+			<Link to="/log-in">
+				<button className="btn-primary header__log-in">Log in</button>
+			</Link>
+
 			<button className="btn-primary header__sign-up">Sign up</button>
 		</div>
 	</div>
