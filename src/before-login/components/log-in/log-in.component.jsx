@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import sprite from '../../assets/sprite.svg';
 import './log-in.styles.scss';
 
@@ -29,19 +30,17 @@ const LogIn = () => (
 						name="email"
 						id="email"
 						className="log-in__input"
+						required
 					/>
 				</label>
-				<label
-					className="log-in__label"
-					log-in__label
-					htmlFor="password"
-				>
+				<label className="log-in__label" htmlFor="password">
 					Password
 					<input
 						type="password"
 						name="password"
 						id="password"
 						className="log-in__input"
+						required
 					/>
 				</label>
 				<a className="log-in__forgot-pass" href="#">
@@ -55,7 +54,9 @@ const LogIn = () => (
 			</form>
 			<div className="log-in__box-footer">
 				<p>Don't have an account?</p>
-				<button className="btn-secondary">Get Started</button>
+				<Link to="/sign-up">
+					<button className="btn-secondary">Get Started</button>
+				</Link>
 			</div>
 		</div>
 	</div>

@@ -12,7 +12,9 @@ const Header = () => (
 				<button className="btn-primary header__log-in">Log in</button>
 			</Link>
 
-			<button className="btn-primary header__sign-up">Sign up</button>
+			<Link to="sign-up">
+				<button className="btn-primary header__sign-up">Sign up</button>
+			</Link>
 		</div>
 	</div>
 );

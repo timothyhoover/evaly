@@ -20,9 +20,11 @@ const MainHero = () => (
 				Discover your English Level and practice for the exams right
 				from your computer. All levels welcome!
 			</p>
-			<button className="btn-secondary hero__get-started">
-				Get Started
-			</button>
+			<Link to="/sign-up">
+				<button className="btn-secondary hero__get-started">
+					Get Started
+				</button>
+			</Link>
 			<Link to="/learn-more">
 				<button className="btn-secondary hero__learn-more">
 					Learn More

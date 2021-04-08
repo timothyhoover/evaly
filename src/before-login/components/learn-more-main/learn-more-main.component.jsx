@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import img1 from '../../assets/high-res/learn-more-hero.png';
 import img2 from '../../assets/high-res/learn-more-main-1.png';
 import img3 from '../../assets/high-res/learn-more-main-2.png';
@@ -13,7 +14,9 @@ const LearnMoreMain = () => (
 					Discover what your English level and where to improve using
 					our evaluation tools.
 				</p>
-				<button className="btn-secondary">Get Started</button>
+				<Link to="/sign-up">
+					<button className="btn-secondary">Get Started</button>
+				</Link>
 			</div>
 			<img src={img1} className="main-section-learn__img-1" />
 		</div>
