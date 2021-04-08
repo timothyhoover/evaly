@@ -2,12 +2,11 @@
 
 .main-section {
 	margin-top: 10rem;
-	padding: 0 15rem;
 
 	&__row-1 {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
+		justify-content: space-evenly;
 		align-items: center;
 		width: 100%;
 		height: auto;
@@ -21,7 +20,7 @@
 	&__row-2 {
 		display: flex;
 		flex-wrap: wrap-reverse;
-		justify-content: space-between;
+		justify-content: space-evenly;
 		align-items: center;
 		width: 100%;
 		height: auto;
@@ -35,7 +34,7 @@
 	&__row-3 {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
+		justify-content: space-evenly;
 		align-items: center;
 		width: 100%;
 		height: auto;
@@ -49,7 +48,7 @@
 	&__row-4 {
 		display: flex;
 		flex-wrap: wrap-reverse;
-		justify-content: space-between;
+		justify-content: space-evenly;
 		align-items: center;
 		width: 100%;
 		height: auto;
