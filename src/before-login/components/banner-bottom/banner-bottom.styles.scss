@@ -5,23 +5,20 @@
 	justify-content: center;
 	align-items: center;
 	background-color: $color-primary-dark;
-	margin-top: 8rem;
+	margin-top: 10rem;
 	height: 30rem;
 
 	&::before {
 		content: '';
 		position: absolute;
-		height: 75%;
+		height: 25%;
 		width: 100%;
 		background-image: url(../../assets/high-res/banner-border.png);
 		background-repeat: no-repeat;
-		transform: translate(0, -47%);
-		@media only screen and (max-width: $bp-large) {
-			transform: translate(0, -45%);
-		}
+		transform: translate(0, -60%);
 
-		@media only screen and (max-width: $bp-largest) {
-			transform: translate(0, -42%);
+		@media only screen and (max-width: $bp-medium) {
+			transform: translate(0, -45%);
 		}
 	}
 
