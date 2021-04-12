@@ -1,161 +1,17 @@
-// COLOR VARIABLES
-$color-primary: #77aca2;
-$color-primary-dark: #468189;
-$color-primary-transparent: rgba(119, 172, 162, 0.17);
-$color-secondary: #8b6794;
-$color-secondary-transparent: rgba(139, 103, 148, 0.15);
-$color-tertiary: #ebd76f;
-$color-tertiary-transparent: rgba(235, 215, 111, 0.15);
+// *********
+// Abstracts
+// *********
+@import './styles/abstracts/mixins';
+@import './styles/abstracts/variables';
 
-$color-red: #e47777;
-$color-red-transparent: rgba(228, 119, 119, 0.25);
+// *****
+// Base
+// *****
+@import './styles/base/animations';
+@import './styles/base/base/';
+@import './styles/base/typography';
 
-$color-green-transparent: rgba(90, 203, 149, 0.2);
-
-$color-blue-dark: #133557;
-$color-blue-dark-secondary: #40556c;
-$color-blue-dark-transparent: rgba(19, 53, 87, 0.12);
-
-$color-grey-light-1: #f9f7f6;
-$color-grey-light-2: #aaa;
-
-$color-grey-dark-1: #54483a;
-$color-grey-dark-2: #6d5d4b;
-
-// FONT VARIABLES
-$font-primary: 'Carter One', cursive;
-$font-secondary: 'Poppins', sans-serif;
-
-// REPONSIVE BREAKPOINTS
-$bp-largest: 75em;
-$bp-large: 62.5em;
-$bp-medium: 50em;
-$bp-small: 37.5em;
-
-*,
-*::before,
-*::after {
-	margin: 0;
-	padding: 0;
-	box-sizing: inherit;
-}
-
-html {
-	box-sizing: border-box;
-	font-size: 62.5%;
-
-	@media only screen and (max-width: $bp-largest) {
-		font-size: 50%;
-	}
-
-	@media only screen and (max-width: $bp-large) {
-		font-size: 45%;
-	}
-}
-
-body {
-	font-family: $font-secondary;
-	color: $color-blue-dark;
-}
-
-a {
-	text-decoration: none;
-	color: black;
-}
-
-ul {
-	list-style: none;
-}
-
-h1 {
-	font-family: $font-primary;
-	font-size: 6.5rem;
-}
-
-h2 {
-	font-family: $font-primary;
-	font-size: 4.5rem;
-}
-
-h3 {
-	font-family: $font-secondary;
-	font-weight: 500;
-	font-size: 2rem;
-}
-
-h4 {
-	font-family: $font-primary;
-	font-size: 4rem;
-}
-
-p {
-	font-family: $font-secondary;
-	font-weight: 400;
-	font-size: 1.8rem;
-}
-
-.btn-primary {
-	background-color: $color-primary;
-	color: #fff;
-	border: none;
-	border-radius: 1rem;
-	font-family: $font-secondary;
-	font-size: 1.5rem;
-	font-weight: 500;
-	padding: 1rem 4rem;
-	cursor: pointer;
-	transition: all 0.2s;
-
-	&:hover {
-		filter: brightness(110%);
-	}
-}
-
-.btn-secondary {
-	background-color: transparent;
-	color: $color-secondary;
-	border: 2px solid;
-	border-radius: 1rem;
-	font-family: $font-secondary;
-	font-size: 1.5rem;
-	font-weight: 500;
-	padding: 1rem 4rem;
-	cursor: pointer;
-	transition: all 0.2s;
-
-	&:hover {
-		background-color: $color-secondary;
-		color: #fff;
-		border: 2px solid $color-secondary;
-		border-radius: 1rem;
-		font-family: $font-secondary;
-		font-size: 1.5rem;
-		font-weight: 500;
-		padding: 1rem 4rem;
-		cursor: pointer;
-		transition: all 0.2s;
-	}
-}
-
-.btn-tertiary {
-	background-color: $color-red;
-	color: #fff;
-	border: none;
-	border-radius: 1rem;
-	font-family: $font-secondary;
-	font-size: 1.5rem;
-	font-weight: 500;
-	padding: 1rem 4rem;
-	cursor: pointer;
-	transition: all 0.2s;
-
-	&:hover {
-		filter: brightness(110%);
-	}
-}
-
-.logo {
-	font-family: $font-primary;
-	font-size: 4.8rem;
-	color: $color-primary;
-}
+// ***********
+// Components
+// ***********
+@import './styles/components/buttons';

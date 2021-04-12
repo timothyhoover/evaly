@@ -17,7 +17,7 @@
 		box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 	}
 
-	&__header {
+	&__heading {
 		font-family: $font-secondary;
 		font-weight: 400;
 		font-size: 4rem;
@@ -120,6 +120,7 @@
 		width: 100%;
 		height: auto;
 		padding-bottom: 4.5rem;
+		cursor: pointer;
 	}
 
 	&__forgot-pass {

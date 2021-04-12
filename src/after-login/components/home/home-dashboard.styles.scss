@@ -1,0 +1,158 @@
+@import '../../../App.scss';
+
+.home-dash {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 90%;
+	overflow: auto;
+	padding: 0 5rem;
+
+	&__title {
+		display: flex;
+		align-items: flex-end;
+		width: 100%;
+		height: 20%;
+		padding-left: 5rem;
+
+		h1 {
+			font-size: 4rem;
+			font-family: $font-secondary;
+		}
+
+		@media only screen and (max-width: $bp-medium) {
+			height: 5%;
+			padding-top: 0;
+			align-items: flex-start;
+		}
+	}
+
+	&__cards {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		width: 100%;
+		text-align: center;
+
+		& > * {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: 50%;
+			width: 40%;
+			border-radius: 1.5rem;
+		}
+
+		@media only screen and (max-width: $bp-medium) {
+			flex-direction: column;
+
+			& > * {
+				width: 80%;
+				height: 35%;
+			}
+		}
+	}
+
+	&__card-1 {
+		margin-right: 5rem;
+		background-color: $color-secondary-transparent;
+
+		& > * {
+			transform: translate(0, -50%);
+		}
+
+		@media only screen and (max-width: $bp-medium) {
+			margin: 0;
+
+			& > * {
+				transform: translate(0, 0);
+			}
+
+			& > :first-child {
+				transform: translate(0, -30%);
+			}
+		}
+	}
+
+	&__card-2 {
+		margin-left: 5rem;
+		background-color: $color-blue-dark-transparent;
+
+		& > * {
+			transform: translate(0, -50%);
+		}
+
+		@media only screen and (max-width: $bp-medium) {
+			margin: 7rem 0 0 0;
+
+			& > * {
+				transform: translate(0, 0);
+			}
+
+			& > :first-child {
+				transform: translate(0, -30%);
+			}
+		}
+	}
+
+	&__card-icon {
+		margin-bottom: -3rem;
+		height: 50%;
+
+		@media only screen and (max-width: $bp-medium) {
+			height: 40%;
+		}
+	}
+
+	&__card-title {
+		font-size: 2.6rem;
+		font-weight: 600;
+		padding-bottom: 1rem;
+	}
+
+	&__card-result-text {
+		font-size: 1.6rem;
+		padding: 0 2rem 2.3rem 2.5rem;
+	}
+
+	&__card-btn--purple {
+		padding: 1.2rem 4rem;
+		background-color: #fff;
+		font-family: $font-secondary;
+		font-size: 1.6rem;
+		font-weight: 500;
+		border-radius: 1rem;
+		@include box-shadow-primary;
+		transition: all 0.2s;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $color-secondary;
+			color: #fff;
+		}
+	}
+
+	&__card-btn--blue {
+		padding: 1.2rem 4rem;
+		background-color: #fff;
+		font-family: $font-secondary;
+		font-size: 1.6rem;
+		font-weight: 500;
+		border-radius: 1rem;
+		@include box-shadow-primary;
+		transition: all 0.2s;
+		cursor: pointer;
+
+		&:hover {
+			background-color: $color-blue-dark;
+			color: #fff;
+		}
+	}
+
+	@media only screen and (max-width: $bp-medium) {
+		padding: 3rem 3rem;
+	}
+}
