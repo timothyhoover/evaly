@@ -1,14 +1,14 @@
 import React from 'react';
 import { Switch, Route } from 'react-router-dom';
-import TopMenu from '../components/top-menu/top-menu.component';
-import SideMenu from '../components/side-menu/side-menu.component';
-import HomeDashboard from '../components/home/home-dashboard.component';
-import Eval from '../components/eval/eval.component';
-import Practice from '../components/practice/practice.component';
-import Results from '../components/results/results.component';
-import AccountSettings from '../components/account-settings/account-settings.component';
-import ProfilePicSettings from '../components/profile-pic-settings/profile-pic.component';
-import PersonalSettings from '../components/personal-settings/personal-settings.component';
+import TopMenu from '../../dashboard-components/top-menu/top-menu.component';
+import SideMenu from '../../dashboard-components/side-menu/side-menu.component';
+import HomeDashboard from '../../dashboard-components/home/home-dashboard.component';
+import Eval from '../../dashboard-components/eval/eval.component';
+import Practice from '../../dashboard-components/practice/practice.component';
+import Results from '../../dashboard-components/results/results.component';
+import AccountSettings from '../../dashboard-components/account-settings/account-settings.component';
+import ProfilePicSettings from '../../dashboard-components/profile-pic-settings/profile-pic.component';
+import PersonalSettings from '../../dashboard-components/personal-settings/personal-settings.component';
 import './dashboard.styles.scss';
 
 const Dashboard = () => (

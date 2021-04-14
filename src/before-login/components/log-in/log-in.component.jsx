@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import showPassBox from '../forgot-password/forgot-password.component';
-import sprite from '../../assets/sprite.svg';
+import sprite from '../../../assets/sprite.svg';
 import './log-in.styles.scss';
 
 const LogIn = () => {

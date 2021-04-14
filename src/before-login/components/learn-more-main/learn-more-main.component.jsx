@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import img1 from '../../assets/high-res/learn-more-hero.png';
-import img2 from '../../assets/high-res/learn-more-main-1.png';
-import img3 from '../../assets/high-res/learn-more-main-2.png';
+import img1 from '../../../assets/high-res/learn-more-hero.png';
+import img2 from '../../../assets/high-res/learn-more-main-1.png';
+import img3 from '../../../assets/high-res/learn-more-main-2.png';
 import './learn-more-main.styles.scss';
 
 const LearnMoreMain = () => (

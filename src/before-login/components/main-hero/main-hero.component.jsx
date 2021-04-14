@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import sprite from '../../assets/sprite.svg';
-import HeroImg from '../../assets/high-res/home-hero.png';
+import sprite from '../../../assets/sprite.svg';
+import HeroImg from '../../../assets/high-res/home-hero.png';
 import './main-hero.styles.scss';
 
 const MainHero = () => (

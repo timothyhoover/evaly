@@ -1,5 +1,5 @@
 import React from 'react';
-import BannerBorder from '../../assets/high-res/banner-border.png';
+import '../../../assets/high-res/banner-border.png';
 import './banner-top.styles.scss';
 
 const BannerTop = () => (

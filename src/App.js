@@ -5,7 +5,8 @@ import LearnMorePage from './before-login/pages/learn-more/learn-more-page.compo
 import LogInPage from './before-login/pages/log-in/log-in-page.comopnent';
 import SignUpPage from './before-login/pages/sign-up/sign-up-page.component';
 import ForgotPasswordPage from './before-login/pages/forgot-password/forgot-password-page.comopnent';
-import Dashboard from './after-login/pages/dashboard.component';
+import Dashboard from './after-login/pages/dashboard-page/dashboard.component';
+import EvalQuizPage from './after-login/pages/eval-quiz-page/eval-quiz-page.component';
 import './App.scss';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
 				<Route path="/sign-up" component={SignUpPage} />
 				<Route path="/forgot-password" component={ForgotPasswordPage} />
 				<Route path="/dashboard" component={Dashboard} />
+				<Route path="/eval-quiz" component={EvalQuizPage} />
 			</Switch>
 		</div>
 	);

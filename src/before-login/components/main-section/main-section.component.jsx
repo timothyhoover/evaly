@@ -1,8 +1,8 @@
 import React from 'react';
-import img1 from '../../assets/high-res/home-main-1.png';
-import img2 from '../../assets/high-res/home-main-2.png';
-import img3 from '../../assets/high-res/home-main-3.png';
-import img4 from '../../assets/high-res/home-main-4.png';
+import img1 from '../../../assets/high-res/home-main-1.png';
+import img2 from '../../../assets/high-res/home-main-2.png';
+import img3 from '../../../assets/high-res/home-main-3.png';
+import img4 from '../../../assets/high-res/home-main-4.png';
 import './main-section.styles.scss';
 
 const MainSection = () => (
