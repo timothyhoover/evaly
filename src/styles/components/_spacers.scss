@@ -1,0 +1,23 @@
+.spacer {
+	display: flex;
+	width: 88%;
+	height: 5%;
+
+	@media only screen and (max-width: $bp-large) {
+		padding-top: 5rem;
+		height: 30%;
+		width: 50%;
+	}
+}
+
+.spacer-big {
+	display: flex;
+	width: 88%;
+	height: 5%;
+
+	@media only screen and (max-width: $bp-large) {
+		padding-top: 5rem;
+		height: 50%;
+		width: 50%;
+	}
+}

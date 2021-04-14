@@ -11,3 +11,18 @@
 	height: 100%;
 	border-radius: 1.5rem;
 }
+
+@mixin practice-cards {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 75%;
+	height: 100%;
+	border-radius: 1.5rem;
+	transition: ease-in 0.2s;
+	cursor: pointer;
+
+	&:hover {
+		width: 90%;
+	}
+}

@@ -45,19 +45,7 @@
 		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
 
 		&:hover {
-			display: flex;
-			justify-content: space-evenly;
-			align-items: center;
-			min-width: 11rem;
-			min-height: 4rem;
-			margin-right: 1.5rem;
-			padding: 1rem 1rem;
-			color: #fff;
-			border: none;
-			background-color: #3b5998;
-			border-radius: 0.7rem;
-			filter: brightness(110%);
-			box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+			box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.3);
 		}
 
 		@media only screen and (max-width: $bp-largest) {
@@ -88,17 +76,6 @@
 		transition: ease-in 0.1s;
 
 		&:hover {
-			display: flex;
-			justify-content: space-evenly;
-			align-items: center;
-			min-width: 10rem;
-			min-height: 4rem;
-			margin-left: 1.5rem;
-			padding: 1rem 1rem;
-			color: $color-blue-dark;
-			border: none;
-			background-color: #fff;
-			border-radius: 0.7rem;
 			box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
 		}
 

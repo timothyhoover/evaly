@@ -12,6 +12,7 @@
 	width: 95%;
 	height: 95%;
 	border-radius: 10px;
+	overflow: hidden;
 	@include box-shadow-primary;
 
 	@media only screen and (max-width: $bp-large) {
@@ -20,6 +21,7 @@
 		height: 100%;
 		border-radius: 0;
 		box-shadow: none;
+		overflow: visible;
 	}
 
 	&__main {

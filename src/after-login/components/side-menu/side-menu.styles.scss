@@ -5,7 +5,7 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	background-color: $color-primary-transparent;
+	background-color: #dff0ed;
 	height: 100%;
 	width: 15%;
 	z-index: 1000;
@@ -80,12 +80,12 @@
 	}
 
 	&__icon {
-		height: auto;
+		height: 60%;
 		width: 28%;
 	}
 
 	&__icon--checkbox {
-		height: auto;
+		height: 60%;
 		width: 25%;
 	}
 

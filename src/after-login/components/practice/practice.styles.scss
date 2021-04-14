@@ -50,40 +50,40 @@
 	}
 
 	&__card-content-reading {
-		@include eval-cards;
+		@include practice-cards;
 		background-color: $color-red-transparent;
 	}
 
 	&__card-content-writing {
-		@include eval-cards;
+		@include practice-cards;
 		background-color: $color-tertiary-transparent;
 	}
 
 	&__card-content-listening {
-		@include eval-cards;
+		@include practice-cards;
 		background-color: $color-secondary-transparent;
 	}
 
 	&__card-content-speaking {
-		@include eval-cards;
+		@include practice-cards;
 		background-color: $color-green-transparent;
 	}
 
-	&__btn-box {
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-		width: 88%;
-		height: 25%;
-
-		@media only screen and (max-width: $bp-large) {
-			align-items: flex-start;
-			padding-top: 5rem;
-			height: 50%;
-			width: 75%;
-		}
+	&__card-arrow {
+		width: 10%;
+		height: auto;
+		margin-left: 0.5rem;
 	}
 
-	&__button {
+	&__spacer-box {
+		display: flex;
+		width: 88%;
+		height: 5%;
+
+		@media only screen and (max-width: $bp-large) {
+			padding-top: 5rem;
+			height: 30%;
+			width: 50%;
+		}
 	}
 }
