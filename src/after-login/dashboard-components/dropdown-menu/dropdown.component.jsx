@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../../assets/sprite.svg';
 import './dropdown.styles.scss';
@@ -38,7 +38,11 @@ const Dropdown = props => {
 				>
 					<a href="#">Personal Settings</a>
 				</Link>
-				<a href="#" className="dropdown__log-out">
+				<a
+					href="#"
+					className="dropdown__log-out"
+					onClick={e => props.onClick(e.target.value)}
+				>
 					<svg className="icon dropdown__icon">
 						<use href={sprite + '#logout'}></use>
 					</svg>

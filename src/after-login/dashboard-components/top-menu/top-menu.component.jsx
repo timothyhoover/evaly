@@ -4,7 +4,7 @@ import sprite from '../../../assets/sprite.svg';
 import ProfileImg from '../../../assets/high-res/profile__img-example.png';
 import './top-menu.styles.scss';
 
-const TopMenu = () => {
+const TopMenu = props => {
 	const [dropdown, setVisible] = useState(false);
 
 	const clickDropdown = () => {
@@ -31,7 +31,7 @@ const TopMenu = () => {
 					</svg>
 				</a>
 			</div>
-			<Dropdown userClickDropdown={dropdown} />
+			<Dropdown onClick={props.onClick} userClickDropdown={dropdown} />
 		</div>
 	);
 };

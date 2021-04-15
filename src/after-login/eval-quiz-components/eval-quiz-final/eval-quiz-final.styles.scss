@@ -33,7 +33,8 @@
 		justify-content: center;
 		width: 50%;
 		height: 50%;
-		@include box-shadow-primary;
+		background-color: $color-primary-transparent;
+		border-radius: 5px;
 
 		@media only screen and (max-width: $bp-medium) {
 			width: 90%;
