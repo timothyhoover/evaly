@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
+import useVisible from '../../../hooks/useVisible';
 import Dropdown from '../dropdown-menu/dropdown.component';
 import sprite from '../../../assets/sprite.svg';
 import ProfileImg from '../../../assets/high-res/profile__img-example.png';
 import './top-menu.styles.scss';
 
-const TopMenu = props => {
-	const [dropdown, setVisible] = useState(false);
-
-	const clickDropdown = () => {
-		dropdown ? setVisible(false) : setVisible(true);
-	};
+const TopMenu = () => {
+	const { ref, isVisible, setIsVisible } = useVisible(false);
 
 	return (
 		<div className="wrapper">
@@ -18,7 +15,7 @@ const TopMenu = props => {
 				<a
 					href="#"
 					className="top-menu__profile"
-					onClick={() => clickDropdown()}
+					onClick={() => setIsVisible(!isVisible)}
 				>
 					<img
 						src={ProfileImg}
@@ -31,7 +28,7 @@ const TopMenu = props => {
 					</svg>
 				</a>
 			</div>
-			<Dropdown onClick={props.onClick} userClickDropdown={dropdown} />
+			{isVisible && <Dropdown ref={ref} />}
 		</div>
 	);
 };

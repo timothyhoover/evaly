@@ -10,24 +10,17 @@ import AccountSettings from '../../dashboard-components/account-settings/account
 import ProfilePicSettings from '../../dashboard-components/profile-pic-settings/profile-pic.component';
 import PersonalSettings from '../../dashboard-components/personal-settings/personal-settings.component';
 import LogOutModal from '../../dashboard-components/log-out-modal/log-out-modal.component';
+import Dropdown from '../../dashboard-components/dropdown-menu/dropdown.component';
 import './dashboard.styles.scss';
 
 const Dashboard = () => {
-	const [isOpen, setIsOpen] = useState(false);
-
-	const handleSetOpen = e => {
-		console.log(e.target.value);
-		console.log('TEST');
-
-		setIsOpen(e.target.value);
-	};
-
 	return (
 		<div className="container">
 			<div className="dashboard">
 				<SideMenu />
 				<div className="dashboard__main">
-					<TopMenu onClick={value => setIsOpen(value)} />
+					<TopMenu />
+
 					<Switch>
 						<Route
 							path="/dashboard/home"
@@ -54,7 +47,6 @@ const Dashboard = () => {
 					</Switch>
 				</div>
 			</div>
-			<LogOutModal isOpen={isOpen} />
 		</div>
 	);
 };
