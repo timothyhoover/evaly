@@ -1,0 +1,89 @@
+@import '../../../../App.scss';
+
+.practice {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 80%;
+	z-index: 0;
+
+	&__title {
+		font-size: 3rem;
+		font-family: $font-secondary;
+		display: flex;
+		align-items: center;
+		width: 100%;
+		height: 5%;
+		padding-left: 8rem;
+	}
+
+	&__cards {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		height: 75%;
+		width: 70%;
+		text-align: center;
+	}
+
+	&__card {
+		flex: 0 50%;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 50%;
+
+		@media only screen and (max-width: $bp-medium) {
+			flex: 100%;
+		}
+	}
+
+	&__card-icon {
+		width: 15%;
+		height: auto;
+		transform: translate(0, 50%);
+		z-index: 0;
+	}
+
+	&__card-content-reading {
+		@include practice-cards;
+		background-color: $color-red-transparent;
+	}
+
+	&__card-content-writing {
+		@include practice-cards;
+		background-color: $color-tertiary-transparent;
+	}
+
+	&__card-content-listening {
+		@include practice-cards;
+		background-color: $color-secondary-transparent;
+	}
+
+	&__card-content-speaking {
+		@include practice-cards;
+		background-color: $color-green-transparent;
+	}
+
+	&__card-arrow {
+		width: 10%;
+		height: auto;
+		margin-left: 0.5rem;
+	}
+
+	&__spacer-box {
+		display: flex;
+		width: 88%;
+		height: 5%;
+
+		@media only screen and (max-width: $bp-large) {
+			padding-top: 5rem;
+			height: 30%;
+			width: 50%;
+		}
+	}
+}

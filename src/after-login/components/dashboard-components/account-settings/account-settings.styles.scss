@@ -1,0 +1,122 @@
+@import '../../../../App.scss';
+
+.account-sett {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 90%;
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		height: 100%;
+		padding-top: 2rem;
+	}
+
+	&__body-title {
+		font-size: 2.5rem;
+		padding-left: 5.5rem;
+	}
+
+	&__form {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
+		height: 100%;
+
+		& > * {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			font-size: 1.4rem;
+			width: 52%;
+			height: 25%;
+			padding: 0 5.5rem;
+
+			@media only screen and (max-width: $bp-medium) {
+				width: 100%;
+			}
+		}
+
+		&-input {
+			margin-top: 1rem;
+			height: 40%;
+			width: 100%;
+			border: 1px solid $color-blue-dark;
+			border-radius: 5px;
+			font-size: 2rem;
+			padding: 0 1rem;
+
+			&:focus {
+				outline: none;
+				box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+				border: 2px solid $color-primary;
+			}
+		}
+
+		&-password {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			width: 100%;
+			height: 25%;
+			z-index: 100;
+		}
+
+		&-password-label {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			width: 50%;
+			height: 100%;
+
+			@media only screen and (max-width: $bp-medium) {
+				width: 100%;
+			}
+		}
+
+		&-input--password {
+			margin-top: 1rem;
+			height: 40%;
+			width: 95%;
+			border: 1px solid $color-blue-dark;
+			border-radius: 5px;
+			font-size: 2rem;
+			padding: 0 1rem;
+
+			&:focus {
+				outline: none;
+				box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+				border: 2px solid $color-primary;
+			}
+
+			@media only screen and (max-width: $bp-medium) {
+				width: 100%;
+			}
+		}
+
+		&-footer {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			height: 25%;
+			width: 97%;
+			padding-bottom: 2rem;
+			z-index: 0;
+
+			@media only screen and (max-width: $bp-medium) {
+				height: 75%;
+			}
+		}
+	}
+
+	&__save-btn {
+	}
+
+	&__delete {
+		color: rgb(184, 53, 53);
+		text-decoration: underline;
+	}
+}
