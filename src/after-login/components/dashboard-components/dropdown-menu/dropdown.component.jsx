@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import { useAuth } from '../../../../context/auth-context';
 import sprite from '../../../../assets/sprite.svg';
 import Modal from '../modal/modal.component';
 import './dropdown.styles.scss';

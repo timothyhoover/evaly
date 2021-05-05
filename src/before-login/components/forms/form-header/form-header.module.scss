@@ -1,0 +1,24 @@
+@import '../../../../App.scss';
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.social_buttons {
+	display: flex;
+	margin-bottom: 2rem;
+}
+
+.heading {
+	font-family: $font-secondary;
+	font-weight: 400;
+	font-size: 4rem;
+	padding: 2.5rem 0;
+}
+
+.or {
+	font-size: 1.4rem;
+}

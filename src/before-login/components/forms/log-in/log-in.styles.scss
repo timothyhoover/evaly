@@ -1,0 +1,37 @@
+@import '../../../../App.scss';
+
+.log-in {
+	&__form {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		width: 100%;
+		height: auto;
+		font-size: 1.4rem;
+		padding-bottom: 4.5rem;
+	}
+
+	&__forgot-pass {
+		margin-top: 1rem;
+		text-align: end;
+		font-size: 1.2rem;
+		color: $color-primary-dark;
+		width: 75%;
+
+		span:hover {
+			text-decoration: underline;
+		}
+	}
+
+	&__form-bottom {
+		display: flex;
+		justify-content: space-between;
+		width: 75%;
+		margin-top: 2rem;
+
+		button {
+			padding: 1rem 7rem;
+		}
+	}
+}

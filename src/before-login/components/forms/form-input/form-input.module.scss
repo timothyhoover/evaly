@@ -1,0 +1,26 @@
+@import '../../../../App.scss';
+
+.formLabel {
+	width: 75%;
+	text-align: left;
+	padding-top: 1rem;
+	font-size: 1.2rem;
+	text-transform: capitalize;
+}
+
+.formInput {
+	display: block;
+	border-radius: 0.5rem;
+	border: 1px solid $color-blue-dark;
+	width: 100%;
+	margin-top: 0.5rem;
+	height: 4.2rem;
+	font-size: 2rem;
+	padding: 0 1rem;
+
+	&:focus {
+		outline: none;
+		box-shadow: 0 1rem 2rem rgba(#000, 0.1);
+		border: 2px solid $color-primary;
+	}
+}

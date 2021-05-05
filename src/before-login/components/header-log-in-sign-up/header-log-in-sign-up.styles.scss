@@ -3,8 +3,11 @@
 .header-log-sign {
 	display: flex;
 	align-items: center;
+	background-color: #fff;
 	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 	padding: 0.5rem 0 0.5rem 4rem;
+	height: 10vh;
+	width: auto;
 
 	#header-log-sign__logo {
 		font-size: 3.8rem;

@@ -8,13 +8,14 @@
 
 	&__content {
 		width: 40%;
+		padding-left: 5rem;
 		h1 {
 			margin-bottom: 2rem;
 			line-height: 1.7;
 			white-space: nowrap;
 
 			@media only screen and (max-width: $bp-largest) {
-				font-size: 4rem;
+				font-size: 5rem;
 			}
 		}
 
@@ -40,8 +41,8 @@
 	}
 
 	&__icon {
-		width: 15rem;
-		transform: translate(0, 18%);
+		width: 13rem;
+		transform: translate(0, 25%);
 	}
 
 	&__get-started {
@@ -51,9 +52,14 @@
 	&__img {
 		height: 55rem;
 		width: auto;
+		margin-top: 3rem;
 
 		@media only screen and (max-width: $bp-largest) {
 			height: 45rem;
+		}
+
+		@media only screen and (max-width: $bp-large) {
+			margin-top: 7rem;
 		}
 	}
 

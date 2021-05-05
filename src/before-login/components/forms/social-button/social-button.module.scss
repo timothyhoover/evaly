@@ -1,0 +1,58 @@
+@import '../../../../App.scss';
+
+.google_btn {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	min-width: 10rem;
+	min-height: 4rem;
+	margin-left: 1.5rem;
+	padding: 1rem 1rem;
+	color: $color-blue-dark;
+	border: none;
+	background-color: #fff;
+	border-radius: 0.7rem;
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+	cursor: pointer;
+	transition: ease-in 0.1s;
+	text-transform: capitalize;
+
+	&:hover {
+		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
+	}
+
+	@media only screen and (max-width: $bp-largest) {
+		min-width: 13rem;
+	}
+}
+
+.fb_btn {
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	min-width: 11rem;
+	min-height: 4rem;
+	margin-right: 1.5rem;
+	padding: 1rem 1rem;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	background-color: #3b5998;
+	border-radius: 0.7rem;
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
+	text-transform: capitalize;
+
+	&:hover {
+		box-shadow: 0 2px 8px 1px rgba(0, 0, 0, 0.3);
+	}
+
+	@media only screen and (max-width: $bp-largest) {
+		min-width: 14rem;
+	}
+}
+
+.icon_social {
+	width: 1.4rem;
+	height: 1.4rem;
+	fill: #fff;
+}
