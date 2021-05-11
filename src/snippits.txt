@@ -1,0 +1,127 @@
+import React from 'react';
+import { Route, Redirect } from 'react-router-dom';
+
+const PrivateRoute = ({ component: Component, authed, ...rest }) => {
+	return (
+		<Route
+			{...rest}
+			render={props =>
+				authed === true ? (
+					<Component {...props} />
+				) : (
+					<Redirect
+						to={{
+							pathname: '/log-in',
+							state: { from: props.location },
+						}}
+					/>
+				)
+			}
+		/>
+	);
+};
+
+export default PrivateRoute;
+
+
+	<React.Fragment>
+			<Route exact path="/" component={HomePage} />
+			<Route path="/learn-more" component={LearnMorePage} />
+			<Route path="/log-in" component={LogInPage} />
+			<Route path="/sign-up" component={SignUpPage} />
+			<Route path="/forgot-password" component={ForgotPasswordPage} />
+		</React.Fragment>
+
+
+        import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+
+const config = {
+	apiKey: 'AIzaSyAGgn2SZuP54MwcaGQJc7vtPIUZO_JG4o4',
+	authDomain: 'evaly-64cb8.firebaseapp.com',
+	projectId: 'evaly-64cb8',
+	storageBucket: 'evaly-64cb8.appspot.com',
+	messagingSenderId: '36835745042',
+	appId: '1:36835745042:web:18f153d560b00fc98567cb',
+	measurementId: 'G-BVVP2C0K2G',
+};
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+	if (!userAuth) return;
+
+	const userRef = firestore.doc(`users/${userAuth.uid}`);
+	const snapShot = await userRef.get();
+
+	if (!snapShot.exists) {
+		const { displayName, email } = userAuth;
+		const createdAt = new Date();
+
+		try {
+			await userRef.set({
+				displayName,
+				email,
+				createdAt,
+				...additionalData,
+			});
+		} catch (error) {
+			console.log('error catching data', error.message);
+		}
+	}
+	return userRef;
+};
+
+firebase.initializeApp(config);
+
+export const auth = firebase.auth();
+export const firestore = firebase.firestore();
+
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: 'select_account' });
+export const signInWithGoogle = () => auth.signInWithPopup(provider);
+
+export default firebase;
+
+
+try {
+			const { user } = await auth.createUserWithEmailAndPassword(
+				email,
+				password
+			);
+			console.log();
+
+			await createUserProfileDocument(user, { displayName });
+
+			setCredentials({
+				displayName: '',
+				email: '',
+				password: '',
+			});
+		} catch (error) {
+			console.error(error);
+		}
+
+
+        export const createUserProfileDocument = async (userAuth, additionalData) => {
+	if (!userAuth) return;
+
+	const userRef = firestore.doc(`users/${userAuth.uid}`);
+	const snapShot = await userRef.get();
+
+	if (!snapShot.exists) {
+		const { displayName, email } = userAuth;
+		const createdAt = new Date();
+
+		try {
+			await userRef.set({
+				displayName,
+				email,
+				createdAt,
+				...additionalData,
+			});
+		} catch (error) {
+			console.log('error catching data', error.message);
+		}
+	}
+	return userRef;
+};

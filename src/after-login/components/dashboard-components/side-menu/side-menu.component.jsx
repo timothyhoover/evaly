@@ -15,7 +15,8 @@ const SideMenu = () => {
 		<div className="side-menu">
 			<div className="logo side-menu__logo">evaly</div>
 			<NavLink
-				to="/dashboard/home"
+				exact
+				to="/dashboard"
 				className="side-menu__tab"
 				activeClassName="side-menu__tab--active"
 			>

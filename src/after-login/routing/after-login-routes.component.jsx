@@ -12,7 +12,7 @@ import PersonalSettings from '../components/dashboard-components/personal-settin
 const AfterLoginRoutes = () => {
 	return (
 		<Switch>
-			<Route path="/dashboard/home" component={HomeDashboard} />
+			<Route exact path="/dashboard" component={HomeDashboard} />
 			<Route path="/dashboard/eval" component={Eval} />
 			<Route path="/dashboard/practice" component={Practice} />
 			<Route path="/dashboard/results" component={Results} />

@@ -6,13 +6,13 @@ import FormHeader from '../form-header/form-header.component';
 import FormInput from '../form-input/form-input.component';
 import FormWrapper from '../form-wrapper/form-wrapper.component';
 import SocialButton from '../social-button/social-button.component';
-import { auth, signInWithGoogle } from '../../../../firebase.utils';
+import { auth } from '../../../../firebase.utils';
 import './log-in.styles.scss';
 
 const LogIn = () => {
 	const emailRef = useRef();
 	const passwordRef = useRef();
-	const { login, currentUser } = useAuth();
+	const { login, currentUser, googleSignIn } = useAuth();
 	const [error, setError] = useState();
 	const [loading, setLoading] = useState(false);
 	const history = useHistory();
@@ -31,18 +31,19 @@ const LogIn = () => {
 		setLoading(false);
 	};
 
+	const handleGoogleSignIn = async () => {
+		(await googleSignIn()) && history.push('/dashboard');
+	};
+
 	return (
 		<FormWrapper>
-			<form onSubmit={handleSubmit} className="log-in__form">
-				<FormHeader heading={'Log in'} or={'or'}>
-					<SocialButton button={'facebook'} />
-					<SocialButton
-						button={'google'}
-						onClick={signInWithGoogle}
-					/>
-				</FormHeader>
+			<FormHeader heading={'Log in'} or={'or'}>
+				<SocialButton button={'facebook'} />
+				<SocialButton button={'google'} onClick={handleGoogleSignIn} />
+			</FormHeader>
 
-				<div className="log-in__form">
+			<form onSubmit={handleSubmit} className="log-in__form">
+				<div className="log-in__input-container">
 					<FormInput
 						name="email"
 						type="email"
@@ -57,20 +58,20 @@ const LogIn = () => {
 						label="Password"
 						required
 					/>
+				</div>
 
-					<div className="log-in__forgot-pass">
-						<Link to="/forgot-password">
-							<span>Forgot Password?</span>
-						</Link>
-					</div>
-					<div className="log-in__form-bottom">
-						<button
-							type="submit"
-							className="btn-primary log-in-box__btn"
-						>
-							Log in
-						</button>
-					</div>
+				<div className="log-in__forgot-pass">
+					<Link to="/forgot-password">
+						<span>Forgot Password?</span>
+					</Link>
+				</div>
+				<div className="log-in__form-bottom">
+					<button
+						type="submit"
+						className="btn-primary log-in-box__btn"
+					>
+						Log in
+					</button>
 				</div>
 			</form>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import TopMenu from '../../components/dashboard-components/top-menu/top-menu.component';
 import SideMenu from '../../components/dashboard-components/side-menu/side-menu.component';

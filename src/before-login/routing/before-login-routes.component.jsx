@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { Switch, Route } from 'react-router-dom';
-import { AuthProvider } from '../../context/auth-context';
+import { Route } from 'react-router-dom';
 import HomePage from '../pages/home/homepage.component';
 import LearnMorePage from '../pages/learn-more/learn-more-page.component';
 import LogInPage from '../pages/log-in/log-in-page.comopnent';

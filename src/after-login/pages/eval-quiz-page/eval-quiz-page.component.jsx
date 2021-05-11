@@ -9,7 +9,7 @@ const EvalQuizPage = () => {
 		<div className="eval-quiz-page">
 			<div className="eval-quiz-page__container">
 				<Switch>
-					<Route path="/eval-quiz/start" component={EvalQuiz} />
+					<Route path="/eval-quiz" component={EvalQuiz} />
 					<Route path="/eval-quiz/final" component={EvalQuizFinal} />
 				</Switch>
 			</div>

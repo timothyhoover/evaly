@@ -21,7 +21,7 @@ const EvalQuizFinal = props => {
 						Your current English level is <span>B1</span>
 					</p>
 				</div>
-				<Link to="/dashboard/home">
+				<Link to="/dashboard">
 					<button className="btn-primary">Return Home</button>
 				</Link>
 			</div>

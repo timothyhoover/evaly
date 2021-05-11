@@ -21,7 +21,7 @@ const HomeDashboard = () => {
 					<div className="home-dash__card-result-text">
 						You scored a B1 level on your last evaluation
 					</div>
-					<Link to="/eval-quiz/start">
+					<Link to="/eval-quiz">
 						<button className="home-dash__card-btn--purple">
 							Start New Eval
 						</button>

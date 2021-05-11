@@ -45,7 +45,7 @@ const Eval = () => {
 					</div>
 				</div>
 				<div className="eval__btn-box">
-					<Link to="/eval-quiz/start">
+					<Link to="/eval-quiz">
 						<button className="btn-secondary eval__button">
 							Start
 						</button>

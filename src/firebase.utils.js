@@ -18,13 +18,14 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 	const userRef = firestore.doc(`users/${userAuth.uid}`);
 	const snapShot = await userRef.get();
 
-	if (!snapShot.exists) {
-		const { displayName, email } = userAuth;
-		const createdAt = new Date();
+	const { displayName, email, photoURL } = userAuth;
+	const createdAt = new Date();
 
+	if (!snapShot.exists) {
 		try {
 			await userRef.set({
 				displayName,
+				photoURL,
 				email,
 				createdAt,
 				...additionalData,
@@ -33,14 +34,29 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 			console.log('error catching data', error.message);
 		}
 	}
+
+	if (snapShot.exists) {
+		try {
+			await userRef.update({
+				displayName,
+				photoURL,
+				email,
+				createdAt,
+				...additionalData,
+			});
+		} catch (error) {
+			console.log('error catching data', error.message);
+		}
+	}
+
 	return userRef;
 };
 
 export const firestore = firebase.firestore();
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: 'select_account' });
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 export const auth = app.auth();
 
