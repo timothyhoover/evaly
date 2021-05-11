@@ -35,17 +35,14 @@ const AccountSettings = () => {
 
 		if (nameRef.current.value !== currentUser.displayName) {
 			promises.push(updateName(nameRef.current.value));
-			updateAccountSettings(currentUser);
 		}
 
 		if (emailRef.current.value !== currentUser.email) {
 			promises.push(updateEmail(emailRef.current.value));
-			updateAccountSettings(currentUser);
 		}
 
 		if (passwordRef.current.value !== currentUser.password) {
 			promises.push(updatePassword(passwordRef.current.value));
-			updateAccountSettings(currentUser);
 		}
 
 		Promise.all(promises)

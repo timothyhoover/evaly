@@ -16,16 +16,8 @@ export const AuthProvider = ({ children }) => {
 	const [currentUser, setCurrentUser] = useState();
 	const [loading, setLoading] = useState(true);
 
-	const signup = (displayName, email, password) => {
+	const signup = (email, password) => {
 		return auth.createUserWithEmailAndPassword(email, password);
-		// .then(userAuth => {
-		// 	userAuth.user.updateProfile({
-		// 		displayName: displayName,
-		// 	});
-		// })
-		// .catch(error => {
-		// 	console.log(error);
-		// });
 	};
 
 	const setDisplayName = displayName => {
@@ -55,6 +47,7 @@ export const AuthProvider = ({ children }) => {
 		return currentUser.updatePassword(password);
 	};
 
+	// TODO see if updateName and setName do the same thing
 	const updateName = displayName => {
 		return currentUser.updateProfile({
 			displayName: displayName,
@@ -65,10 +58,6 @@ export const AuthProvider = ({ children }) => {
 		const google = signInWithGoogle();
 		setCurrentUser(google);
 		return google;
-	};
-
-	const updateAccountSettings = () => {
-		createUserProfileDocument(currentUser);
 	};
 
 	const updatePersonalSettings = data => {
@@ -97,7 +86,6 @@ export const AuthProvider = ({ children }) => {
 		updateName,
 		googleSignIn,
 		updatePersonalSettings,
-		updateAccountSettings,
 	};
 
 	return (
