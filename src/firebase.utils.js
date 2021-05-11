@@ -20,7 +20,6 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 
 	const { displayName, email, photoURL } = userAuth;
 	const createdAt = new Date();
-
 	if (!snapShot.exists) {
 		try {
 			await userRef.set({

@@ -4,7 +4,10 @@ import { useAuth } from '../../../../context/auth-context';
 import HeaderSettings from '../header-settings/header-settings.component';
 import FormInput from '../../../../before-login/components/forms/form-input/form-input.component';
 import CountryOption from '../../../../rest-country/rest-country-api';
-import { createUserProfileDocument } from '../../../../firebase.utils';
+import {
+	createUserProfileDocument,
+	firestore,
+} from '../../../../firebase.utils';
 import './personal-settings.styles.scss';
 
 const PersonalSettings = () => {
@@ -25,6 +28,33 @@ const PersonalSettings = () => {
 			bio: bioRef.current.value,
 		});
 	};
+	const userRef = firestore.doc(`users/${currentUser.uid}`);
+
+	const fetchCountry = async userAuth => {
+		if (!userAuth) return;
+		const snapShot = await userRef.get();
+		return snapShot.data().country;
+	};
+
+	const fetchCity = async userAuth => {
+		if (!userAuth) return;
+		const snapShot = await userRef
+			.get()
+			.then(res => res.json())
+			.then(user => {
+				return user.city;
+			});
+	};
+
+	const fetchBio = async userAuth => {
+		if (!userAuth) return;
+		const snapShot = await userRef.get();
+		return snapShot.data().bio.then(res => {
+			res.json();
+		});
+	};
+
+	console.log(fetchCity(currentUser));
 
 	return (
 		<div className="personal-sett">
@@ -54,7 +84,7 @@ const PersonalSettings = () => {
 						name="city"
 						ref={cityRef}
 						label="City"
-						placeholder={currentUser.city}
+						placeholder={fetchCountry(currentUser)}
 					/>
 				</div>
 
