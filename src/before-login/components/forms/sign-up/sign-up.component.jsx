@@ -1,12 +1,14 @@
 import React, { useState, useRef } from 'react';
 
 import { useHistory } from 'react-router-dom';
+
 import { useAuth } from '../../../../context/auth-context';
 import FormInput from '../form-input/form-input.component';
 import FormFooter from '../form-footer/form-footer.component';
 import FormWrapper from '../form-wrapper/form-wrapper.component';
 import FormHeader from '../form-header/form-header.component';
 import SocialButton from '../social-button/social-button.component';
+import { createUserProfileDocument } from '../../../../firebase.utils';
 import './sign-up.styles.scss';
 
 const SignUp = () => {
@@ -24,15 +26,12 @@ const SignUp = () => {
 		try {
 			setError('');
 			setLoading(true);
-			await signup(
-				nameRef.current.value,
-				emailRef.current.value,
-				passwordRef.current.value
-			);
+			await signup(emailRef.current.value, passwordRef.current.value);
 			await setDisplayName(nameRef.current.value);
+
 			history.push('/dashboard');
 		} catch {
-			setError(error);
+			alert(error);
 		}
 		setLoading(false);
 	};

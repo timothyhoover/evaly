@@ -28,33 +28,43 @@ const PersonalSettings = () => {
 			bio: bioRef.current.value,
 		});
 	};
-	const userRef = firestore.doc(`users/${currentUser.uid}`);
+	// const userRef = firestore.doc(`users/${currentUser.uid}`);
 
-	const fetchCountry = async userAuth => {
-		if (!userAuth) return;
-		const snapShot = await userRef.get();
-		return snapShot.data().country;
-	};
+	// const fetchCountry = async userAuth => {
+	// 	if (!userAuth) return;
+	// 	const snapShot = await userRef.get();
+	// 	return snapShot.data().country;
+	// };
 
-	const fetchCity = async userAuth => {
-		if (!userAuth) return;
-		const snapShot = await userRef
-			.get()
-			.then(res => res.json())
-			.then(user => {
-				return user.city;
-			});
-	};
+	// const fetchCity = async userAuth => {
+	// 	if (!userAuth) return;
+	// 	const snapShot = await userRef
+	// 		.get()
+	// 		.then(res => res.json())
+	// 		.then(user => {
+	// 			return user.city;
+	// 		});
 
-	const fetchBio = async userAuth => {
-		if (!userAuth) return;
-		const snapShot = await userRef.get();
-		return snapShot.data().bio.then(res => {
-			res.json();
+	// };
+
+	// const fetchBio = async userAuth => {
+	// 	if (!userAuth) return;
+	// 	const snapShot = await userRef.get();
+	// 	return snapShot.data().bio.then(res => {
+	// 		res.json();
+	// 	});
+	// };
+
+	// console.log(fetchCity(currentUser));
+
+	const fetchData = async userAuth => {
+		const userRef = await createUserProfileDocument(userAuth);
+		userRef.onSnapshot(snapshot => {
+			return snapshot.data();
 		});
 	};
 
-	console.log(fetchCity(currentUser));
+	console.log(fetchData);
 
 	return (
 		<div className="personal-sett">
@@ -84,7 +94,7 @@ const PersonalSettings = () => {
 						name="city"
 						ref={cityRef}
 						label="City"
-						placeholder={fetchCountry(currentUser)}
+						placeholder={currentUser.city}
 					/>
 				</div>
 
