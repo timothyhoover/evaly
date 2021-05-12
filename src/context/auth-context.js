@@ -48,8 +48,9 @@ export const AuthProvider = ({ children }) => {
 		return currentUser.updatePassword(password);
 	};
 
-	const deleteProfile = user => {
-		return currentUser.delete();
+	const deleteProfile = () => {
+		currentUser.delete();
+		firestore.doc(`users/${currentUser.uid}`).delete();
 	};
 
 	// TODO see if updateName and setName do the same thing

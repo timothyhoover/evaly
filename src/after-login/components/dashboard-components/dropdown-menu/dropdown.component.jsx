@@ -5,7 +5,7 @@ import sprite from '../../../../assets/sprite.svg';
 import Modal from '../modal/modal.component';
 import './dropdown.styles.scss';
 
-const Dropdown = props => {
+const Dropdown = (props, ref) => {
 	const [modal, setModal] = useState();
 	const { logout } = useAuth();
 	const [error, setError] = useState();
@@ -27,11 +27,12 @@ const Dropdown = props => {
 	};
 
 	return (
-		<div className="dropdown" id="dropdownId" ref={props.ref}>
+		<div className="dropdown" id="dropdownId" ref={ref}>
 			<nav role="account navigation" className="dropdown__container">
 				<Link
 					to="/dashboard/account-settings"
 					className="dropdown__item"
+					onClick={props.handleDropdown}
 				>
 					Account Settings
 				</Link>
@@ -39,6 +40,7 @@ const Dropdown = props => {
 				<Link
 					to="/dashboard/profile-picture"
 					className="dropdown__item"
+					onClick={props.handleDropdown}
 				>
 					Profile Picture
 				</Link>
@@ -46,6 +48,7 @@ const Dropdown = props => {
 				<Link
 					to="/dashboard/personal-settings"
 					className="dropdown__item"
+					onClick={props.handleDropdown}
 				>
 					Personal Settings
 				</Link>
@@ -60,10 +63,12 @@ const Dropdown = props => {
 				<Modal
 					onClickHandler={showModalHandler}
 					handleLogout={handleLogout}
+					title={'Are you sure you want to log out?'}
 				/>
 			)}
 		</div>
 	);
 };
 
-export default Dropdown;
+const DropdownRef = React.forwardRef(Dropdown);
+export default DropdownRef;

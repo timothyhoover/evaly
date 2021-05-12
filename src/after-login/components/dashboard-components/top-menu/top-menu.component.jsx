@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useAuth } from '../../../../context/auth-context';
 import useVisible from '../../../../hooks/useVisible';
 import Dropdown from '../dropdown-menu/dropdown.component';
@@ -6,14 +6,12 @@ import sprite from '../../../../assets/sprite.svg';
 import './top-menu.styles.scss';
 
 const TopMenu = () => {
-	const { isVisible, setIsVisible } = useVisible(false);
+	const { ref, isVisible, setIsVisible } = useVisible(false);
 	const { currentUser } = useAuth();
-	// const [displayName, setDisplayName] = useState();
 
-	// useEffect(() => {
-	// 	setDisplayName(currentUser.displayName);
-	// 	console.log('Top Menu');
-	// });
+	const handleDropdown = () => {
+		setIsVisible(!isVisible);
+	};
 
 	return (
 		<div className="wrapper">
@@ -22,7 +20,7 @@ const TopMenu = () => {
 				<a
 					href="#"
 					className="top-menu__profile"
-					onClick={() => setIsVisible(!isVisible)}
+					onClick={handleDropdown}
 				>
 					<img
 						src={currentUser.photoURL}
@@ -37,7 +35,7 @@ const TopMenu = () => {
 					</svg>
 				</a>
 			</div>
-			{isVisible && <Dropdown />}
+			{isVisible && <Dropdown handleDropdown={handleDropdown} />}
 		</div>
 	);
 };
