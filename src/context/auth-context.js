@@ -48,6 +48,10 @@ export const AuthProvider = ({ children }) => {
 		return currentUser.updatePassword(password);
 	};
 
+	const deleteProfile = user => {
+		return currentUser.delete();
+	};
+
 	// TODO see if updateName and setName do the same thing
 	const updateName = displayName => {
 		return currentUser.updateProfile({
@@ -67,8 +71,10 @@ export const AuthProvider = ({ children }) => {
 
 	createUserProfileDocument(currentUser);
 
+	console.log(currentUser);
+
 	useEffect(() => {
-		const unsubscribe = auth.onAuthStateChanged(user => {
+		const unsubscribe = auth.onAuthStateChanged(async user => {
 			setCurrentUser(user);
 			setLoading(false);
 		});
@@ -87,6 +93,7 @@ export const AuthProvider = ({ children }) => {
 		updateName,
 		googleSignIn,
 		updatePersonalSettings,
+		deleteProfile,
 	};
 
 	return (

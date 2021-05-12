@@ -43,7 +43,7 @@ const SignUp = () => {
 	return (
 		<FormWrapper>
 			<FormHeader heading={'Sign up'} or={'or'}>
-				<SocialButton button={'facebook'} />
+				{/* <SocialButton button={'facebook'} /> */}
 				<SocialButton button={'google'} onClick={handleGoogleSignIn} />
 			</FormHeader>
 

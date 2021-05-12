@@ -18,6 +18,9 @@ const PersonalSettings = () => {
 	const [loading, setLoading] = useState(false);
 	const { currentUser, updatePersonalSettings } = useAuth();
 	const history = useHistory();
+	const [userInfo, setUserInfo] = useState({
+		currentUser: null,
+	});
 
 	const handleSubmit = event => {
 		event.preventDefault();
@@ -57,14 +60,16 @@ const PersonalSettings = () => {
 
 	// console.log(fetchCity(currentUser));
 
-	const fetchData = async userAuth => {
-		const userRef = await createUserProfileDocument(userAuth);
-		userRef.onSnapshot(snapshot => {
-			return snapshot.data();
-		});
-	};
+	// const fetchData = async userAuth => {
+	// 	if (userAuth) {
+	// 		const userRef = await createUserProfileDocument(userAuth);
+	// 		userRef.onSnapshot(snapshot => {
+	// 			return snapshot.data();
+	// 		});
+	// 	}
+	// };
 
-	console.log(fetchData);
+	// console.log(fetchData(currentUser));
 
 	return (
 		<div className="personal-sett">

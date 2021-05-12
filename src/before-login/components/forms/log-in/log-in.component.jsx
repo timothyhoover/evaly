@@ -38,7 +38,7 @@ const LogIn = () => {
 	return (
 		<FormWrapper>
 			<FormHeader heading={'Log in'} or={'or'}>
-				<SocialButton button={'facebook'} />
+				{/* <SocialButton button={'facebook'} /> */}
 				<SocialButton button={'google'} onClick={handleGoogleSignIn} />
 			</FormHeader>
 

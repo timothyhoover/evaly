@@ -9,33 +9,13 @@ const ModalOverlay = props => {
 };
 
 const ModalBox = props => {
-	const { logout } = useAuth();
-	const [error, setError] = useState();
-	const history = useHistory();
-
-	const handleLogout = async () => {
-		setError('');
-		try {
-			await logout();
-			history.push('/log-in');
-		} catch (error) {
-			alert(error);
-		}
-	};
-
 	return (
 		<div className="modal-box">
 			<h1 className="modal-box__title">
 				Are you sure you want to log out?
 			</h1>
 			<div className="modal-box__buttons">
-				<button
-					className="btn-primary"
-					onClick={() => {
-						handleLogout();
-						props.onClick();
-					}}
-				>
+				<button className="btn-primary" onClick={props.handleLogout}>
 					Yes I’m Sure
 				</button>
 				<button className="btn-primary" onClick={props.onClick}>
@@ -55,7 +35,10 @@ const Modal = props => {
 			)}
 
 			{ReactDOM.createPortal(
-				<ModalBox onClick={props.onClickHandler} />,
+				<ModalBox
+					onClick={props.onClickHandler}
+					handleLogout={props.handleLogout}
+				/>,
 				document.getElementById('modal-box')
 			)}
 		</React.Fragment>
