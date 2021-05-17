@@ -3,7 +3,6 @@ import './progress-bar.styles.scss';
 
 const ProgressBar = props => {
 	const width = (props.questionCount / props.quizLength) * 100;
-	console.log(props.questionCount);
 
 	return (
 		<div className="progress">

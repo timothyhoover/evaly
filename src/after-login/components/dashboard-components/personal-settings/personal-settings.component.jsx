@@ -16,11 +16,8 @@ const PersonalSettings = () => {
 	const bioRef = useRef();
 	const [error, setError] = useState();
 	const [loading, setLoading] = useState(false);
-	const { currentUser, updatePersonalSettings } = useAuth();
+	const { currentUser, userInfo, updatePersonalSettings } = useAuth();
 	const history = useHistory();
-	const [userInfo, setUserInfo] = useState({
-		currentUser: null,
-	});
 
 	const handleSubmit = event => {
 		event.preventDefault();
@@ -31,45 +28,18 @@ const PersonalSettings = () => {
 			bio: bioRef.current.value,
 		});
 	};
-	// const userRef = firestore.doc(`users/${currentUser.uid}`);
 
-	// const fetchCountry = async userAuth => {
-	// 	if (!userAuth) return;
-	// 	const snapShot = await userRef.get();
-	// 	return snapShot.data().country;
-	// };
+	const handleCityPlaceholderText = () => {
+		return !userInfo.city ? 'city' : userInfo.city;
+	};
 
-	// const fetchCity = async userAuth => {
-	// 	if (!userAuth) return;
-	// 	const snapShot = await userRef
-	// 		.get()
-	// 		.then(res => res.json())
-	// 		.then(user => {
-	// 			return user.city;
-	// 		});
+	const handleBioPlaceholderText = () => {
+		return !userInfo.bio ? 'city' : userInfo.bio;
+	};
 
-	// };
-
-	// const fetchBio = async userAuth => {
-	// 	if (!userAuth) return;
-	// 	const snapShot = await userRef.get();
-	// 	return snapShot.data().bio.then(res => {
-	// 		res.json();
-	// 	});
-	// };
-
-	// console.log(fetchCity(currentUser));
-
-	// const fetchData = async userAuth => {
-	// 	if (userAuth) {
-	// 		const userRef = await createUserProfileDocument(userAuth);
-	// 		userRef.onSnapshot(snapshot => {
-	// 			return snapshot.data();
-	// 		});
-	// 	}
-	// };
-
-	// console.log(fetchData(currentUser));
+	const handleCountryPlaceholderText = () => {
+		return !userInfo.country ? 'country' : userInfo.country;
+	};
 
 	return (
 		<div className="personal-sett">
@@ -89,7 +59,9 @@ const PersonalSettings = () => {
 							ref={countryRef}
 							className="personal-sett__selection"
 						>
-							<option value="">Countries</option>
+							<option value="">
+								{handleCountryPlaceholderText()}
+							</option>
 							<CountryOption />
 						</select>
 					</label>
@@ -98,8 +70,8 @@ const PersonalSettings = () => {
 						type="text"
 						name="city"
 						ref={cityRef}
+						placeholder={handleCityPlaceholderText()}
 						label="City"
-						placeholder={currentUser.city}
 					/>
 				</div>
 
@@ -109,7 +81,7 @@ const PersonalSettings = () => {
 						className="personal-sett__input-about"
 						id="about"
 						ref={bioRef}
-						placeholder="Tell us about yourself"
+						placeholder={handleBioPlaceholderText()}
 						rows="15"
 						cols="75"
 					/>

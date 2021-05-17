@@ -1,8 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../../../context/auth-context';
+import { createUserProfileDocument } from '../../../../firebase.utils';
 import './eval-quiz-final.styles.scss';
 
 const EvalQuizFinal = props => {
+	const { currentUser } = useAuth();
+
+	const englishLevelSetter = () => {
+		if (props.finalScore === props.quizLength) {
+			return 'C1';
+		}
+	};
+
+	console.log(currentUser);
+
+	const saveUserEnglishLevel = () => {
+		createUserProfileDocument(currentUser, {
+			currentLevel: englishLevelSetter(),
+		});
+	};
+
 	return (
 		<div className="eval-final">
 			<div className="eval-final__header">
@@ -18,11 +36,17 @@ const EvalQuizFinal = props => {
 				</div>
 				<div className="eval-final__level">
 					<p>
-						Your current English level is <span>B1</span>
+						Your current English level is{' '}
+						<span>{englishLevelSetter()}</span>
 					</p>
 				</div>
 				<Link to="/dashboard">
-					<button className="btn-primary">Return Home</button>
+					<button
+						className="btn-primary"
+						onClick={saveUserEnglishLevel}
+					>
+						Return Home
+					</button>
 				</Link>
 			</div>
 		</div>

@@ -1,14 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../../../assets/sprite.svg';
+import { useAuth } from '../../../../context/auth-context';
 import './home-dashboard.styles.scss';
 
 const HomeDashboard = () => {
+	const { userInfo } = useAuth();
+
+	const handleCurrentLevel = () => {
+		return userInfo.currentLevel === undefined ? (
+			<h1>Welcome! Start your eval to see your level</h1>
+		) : (
+			<h1>Current Level: {userInfo.currentLevel}</h1>
+		);
+	};
+
 	return (
 		<div className="home-dash">
-			<div className="home-dash__title">
-				<h1>Current Level: B2</h1>
-			</div>
+			<div className="home-dash__title">{handleCurrentLevel()}</div>
 			<div className="home-dash__cards">
 				<div className="home-dash__card-1">
 					<svg className="icon home-dash__card-icon">

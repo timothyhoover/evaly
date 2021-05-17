@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-
+import firebase from 'firebase/app';
 import {
 	auth,
 	signInWithGoogle,
@@ -16,15 +16,17 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
 	const [currentUser, setCurrentUser] = useState();
 	const [loading, setLoading] = useState(true);
+	const [userInfo, setUserInfo] = useState();
 
-	const signup = (email, password) => {
-		return auth.createUserWithEmailAndPassword(email, password);
-	};
-
-	const setDisplayName = displayName => {
-		return auth.currentUser.updateProfile({
-			displayName: displayName,
-		});
+	const signup = async (displayName, email, password) => {
+		return auth
+			.createUserWithEmailAndPassword(email, password)
+			.then(userAuth => {
+				userAuth.user.updateProfile({
+					displayName: displayName,
+				});
+			})
+			.then(() => createUserProfileDocument(currentUser));
 	};
 
 	const login = (email, password) => {
@@ -53,7 +55,6 @@ export const AuthProvider = ({ children }) => {
 		firestore.doc(`users/${currentUser.uid}`).delete();
 	};
 
-	// TODO see if updateName and setName do the same thing
 	const updateName = displayName => {
 		return currentUser.updateProfile({
 			displayName: displayName,
@@ -70,12 +71,21 @@ export const AuthProvider = ({ children }) => {
 		createUserProfileDocument(currentUser, data);
 	};
 
-	createUserProfileDocument(currentUser);
-
 	console.log(currentUser);
+	console.log(userInfo);
 
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged(async user => {
+			if (user) {
+				const userRef = await createUserProfileDocument(user);
+				userRef.onSnapshot(doc => {
+					setUserInfo({
+						id: doc.id,
+						...doc.data(),
+					});
+				});
+			}
+			setUserInfo(user);
 			setCurrentUser(user);
 			setLoading(false);
 		});
@@ -84,9 +94,9 @@ export const AuthProvider = ({ children }) => {
 
 	const value = {
 		currentUser,
+		userInfo,
 		login,
 		signup,
-		setDisplayName,
 		logout,
 		resetPassword,
 		updateEmail,

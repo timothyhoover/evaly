@@ -13,6 +13,7 @@ const AccountSettings = () => {
 	const passwordConfirmRef = useRef();
 	const {
 		currentUser,
+		userInfo,
 		updateEmail,
 		updatePassword,
 		updateName,
