@@ -34,7 +34,9 @@ const PersonalSettings = () => {
 	};
 
 	const handleBioPlaceholderText = () => {
-		return !userInfo.bio ? 'city' : userInfo.bio;
+		return !userInfo.bio
+			? 'Tell us a little about your self'
+			: userInfo.bio;
 	};
 
 	const handleCountryPlaceholderText = () => {
