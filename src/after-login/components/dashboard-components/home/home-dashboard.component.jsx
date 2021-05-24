@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../../../assets/sprite.svg';
 import { useAuth } from '../../../../context/auth-context';
+import UserProfile from '../../../../user-profile/user-profile';
 import './home-dashboard.styles.scss';
 
 const HomeDashboard = () => {
-	const { userInfo } = useAuth();
+	const { userInfo } = UserProfile();
 
 	const handleCurrentLevel = () => {
-		return userInfo.currentLevel === undefined ? (
+		return !userInfo || userInfo.currentLevel === undefined ? (
 			<h1>Welcome! Start your eval to see your level</h1>
 		) : (
 			<h1>Current Level: {userInfo.currentLevel}</h1>

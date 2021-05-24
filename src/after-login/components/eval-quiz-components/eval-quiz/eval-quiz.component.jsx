@@ -4,6 +4,7 @@ import sprite from '../../../../assets/sprite.svg';
 import QuizHeader from './quiz-header.component';
 import ProgressBar from './progress-bar.component';
 import QuizFooter from './quiz-footer.component';
+import _ from 'lodash';
 import { evalQuestions } from '../eval-questions/eval-questions';
 import './eval-quiz.styles.scss';
 
@@ -18,6 +19,9 @@ const EvalQuiz = () => {
 	const [grade, setGrade] = useState(true);
 
 	const nextQuestion = currentQuestion + 1;
+
+	// const shuffle = _.shuffle([1, 2, 3, 4]);
+	// console.log(shuffle);
 
 	const nextButtonHandler = () => {
 		setCurrentQuestion(nextQuestion);
@@ -74,6 +78,8 @@ const EvalQuiz = () => {
 		}
 	};
 
+	// const shuffleOptions = _.shuffle(evalQuestions[currentQuestion].options);
+
 	return (
 		<React.Fragment>
 			{!quizFinal ? (
@@ -91,6 +97,7 @@ const EvalQuiz = () => {
 
 						{evalQuestions[currentQuestion].options.map(
 							(option, i) => {
+								// {TODO: Fix shuffle option method}
 								return (
 									<label
 										htmlFor={option.id}

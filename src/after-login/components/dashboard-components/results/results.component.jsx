@@ -14,9 +14,11 @@ const Results = () => {
 					<div className="results__card-box">
 						<h3 className="results__card-title">Eval History</h3>
 						<table className="results__card-table">
-							<thead className="results__card-table__header">
-								<th>Date</th>
-								<th>Result</th>
+							<thead>
+								<tr className="results__card-table__header">
+									<th>Date</th>
+									<th>Result</th>
+								</tr>
 							</thead>
 							<tbody className="results__card-table__body">
 								<tr className="results__card-table__body-data">

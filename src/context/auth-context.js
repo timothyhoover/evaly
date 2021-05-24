@@ -16,17 +16,9 @@ export const useAuth = () => {
 export const AuthProvider = ({ children }) => {
 	const [currentUser, setCurrentUser] = useState();
 	const [loading, setLoading] = useState(true);
-	const [userInfo, setUserInfo] = useState();
 
-	const signup = async (displayName, email, password) => {
-		return auth
-			.createUserWithEmailAndPassword(email, password)
-			.then(userAuth => {
-				userAuth.user.updateProfile({
-					displayName: displayName,
-				});
-			})
-			.then(() => createUserProfileDocument(currentUser));
+	const signup = (email, password) => {
+		return auth.createUserWithEmailAndPassword(email, password);
 	};
 
 	const login = (email, password) => {
@@ -61,6 +53,12 @@ export const AuthProvider = ({ children }) => {
 		});
 	};
 
+	const setName = displayName => {
+		return auth.currentUser.updateProfile({
+			displayName: displayName,
+		});
+	};
+
 	const googleSignIn = () => {
 		const google = signInWithGoogle();
 		setCurrentUser(google);
@@ -71,21 +69,14 @@ export const AuthProvider = ({ children }) => {
 		createUserProfileDocument(currentUser, data);
 	};
 
+	const updateAccountSettings = data => {
+		createUserProfileDocument(currentUser, data);
+	};
+
 	console.log(currentUser);
-	console.log(userInfo);
 
 	useEffect(() => {
-		const unsubscribe = auth.onAuthStateChanged(async user => {
-			if (user) {
-				const userRef = await createUserProfileDocument(user);
-				userRef.onSnapshot(doc => {
-					setUserInfo({
-						id: doc.id,
-						...doc.data(),
-					});
-				});
-			}
-			setUserInfo(user);
+		const unsubscribe = auth.onAuthStateChanged(user => {
 			setCurrentUser(user);
 			setLoading(false);
 		});
@@ -94,7 +85,6 @@ export const AuthProvider = ({ children }) => {
 
 	const value = {
 		currentUser,
-		userInfo,
 		login,
 		signup,
 		logout,
@@ -102,8 +92,10 @@ export const AuthProvider = ({ children }) => {
 		updateEmail,
 		updatePassword,
 		updateName,
+		setName,
 		googleSignIn,
 		updatePersonalSettings,
+		updateAccountSettings,
 		deleteProfile,
 	};
 

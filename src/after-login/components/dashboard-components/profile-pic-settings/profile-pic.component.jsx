@@ -39,7 +39,7 @@ const ProfilePicSettings = () => {
 						class="profile-pic__upload"
 						onChange={handleChange}
 					/>
-					<label for="file">Choose a file</label>
+					<label htmlFor="file">Choose a file</label>
 				</div>
 			</div>
 		</div>

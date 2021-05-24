@@ -22,6 +22,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 	const createdAt = new Date();
 
 	if (!snapShot.exists) {
+		console.log(displayName);
 		try {
 			await userRef.set({
 				displayName,
@@ -38,6 +39,8 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 	if (snapShot.exists) {
 		try {
 			await userRef.update({
+				displayName,
+				email,
 				...additionalData,
 			});
 		} catch (error) {

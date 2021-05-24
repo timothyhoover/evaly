@@ -4,10 +4,7 @@ import { useAuth } from '../../../../context/auth-context';
 import HeaderSettings from '../header-settings/header-settings.component';
 import FormInput from '../../../../before-login/components/forms/form-input/form-input.component';
 import CountryOption from '../../../../rest-country/rest-country-api';
-import {
-	createUserProfileDocument,
-	firestore,
-} from '../../../../firebase.utils';
+import UserProfile from '../../../../user-profile/user-profile';
 import './personal-settings.styles.scss';
 
 const PersonalSettings = () => {
@@ -16,7 +13,8 @@ const PersonalSettings = () => {
 	const bioRef = useRef();
 	const [error, setError] = useState();
 	const [loading, setLoading] = useState(false);
-	const { currentUser, userInfo, updatePersonalSettings } = useAuth();
+	const { updatePersonalSettings } = useAuth();
+	const { userInfo } = UserProfile();
 	const history = useHistory();
 
 	const handleSubmit = event => {
@@ -30,17 +28,21 @@ const PersonalSettings = () => {
 	};
 
 	const handleCityPlaceholderText = () => {
-		return !userInfo.city ? 'city' : userInfo.city;
+		return !userInfo || userInfo.city === undefined
+			? 'city'
+			: userInfo.city;
 	};
 
 	const handleBioPlaceholderText = () => {
-		return !userInfo.bio
+		return !userInfo || userInfo.city === undefined
 			? 'Tell us a little about your self'
 			: userInfo.bio;
 	};
 
 	const handleCountryPlaceholderText = () => {
-		return !userInfo.country ? 'country' : userInfo.country;
+		return !userInfo || userInfo.city === undefined
+			? 'country'
+			: userInfo.country;
 	};
 
 	return (

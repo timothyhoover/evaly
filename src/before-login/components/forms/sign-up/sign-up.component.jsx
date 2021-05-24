@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 
 import { useHistory } from 'react-router-dom';
-
 import { useAuth } from '../../../../context/auth-context';
 import FormInput from '../form-input/form-input.component';
 import FormFooter from '../form-footer/form-footer.component';
@@ -14,7 +13,7 @@ const SignUp = () => {
 	const nameRef = useRef();
 	const emailRef = useRef();
 	const passwordRef = useRef();
-	const { signup, googleSignIn } = useAuth();
+	const { signup, googleSignIn, setName } = useAuth();
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
 	const history = useHistory();
@@ -25,12 +24,8 @@ const SignUp = () => {
 		try {
 			setError('');
 			setLoading(true);
-			await signup(
-				nameRef.current.value,
-				emailRef.current.value,
-				passwordRef.current.value
-			);
-
+			await signup(emailRef.current.value, passwordRef.current.value);
+			await setName(nameRef.current.value);
 			history.push('/dashboard');
 		} catch {
 			alert(error);

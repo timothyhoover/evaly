@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom';
 import HeaderSettings from '../header-settings/header-settings.component';
 import FormInput from '../../../../before-login/components/forms/form-input/form-input.component';
 import Modal from '../modal/modal.component';
+import UserProfile from '../../../../user-profile/user-profile';
 import './account-settings.styles.scss';
 
 const AccountSettings = () => {
@@ -13,28 +14,28 @@ const AccountSettings = () => {
 	const passwordConfirmRef = useRef();
 	const {
 		currentUser,
-		userInfo,
 		updateEmail,
 		updatePassword,
 		updateName,
-		updateAccountSettings,
 		deleteProfile,
+		updateAccountSettings,
 	} = useAuth();
 	const [error, setError] = useState();
 	const [loading, setLoading] = useState(false);
 	const [modal, setModal] = useState();
 	const history = useHistory();
+	const { userInfo } = UserProfile();
 
-	const handleSubmit = async event => {
+	const handleSubmit = event => {
 		event.preventDefault();
-		setLoading(true);
-		setError('');
 
 		if (passwordRef.current.value !== passwordConfirmRef.current.value) {
 			return alert('passwords do not match');
 		}
 
 		const promises = [];
+		setLoading(true);
+		setError('');
 
 		if (nameRef.current.value !== currentUser.displayName) {
 			promises.push(updateName(nameRef.current.value));
@@ -47,7 +48,6 @@ const AccountSettings = () => {
 		if (passwordRef.current.value !== currentUser.password) {
 			promises.push(updatePassword(passwordRef.current.value));
 		}
-
 		Promise.all(promises)
 			.then(() => {
 				alert('success');
@@ -95,6 +95,7 @@ const AccountSettings = () => {
 								ref={nameRef}
 								label="Name"
 								placeholder={currentUser.displayName}
+								required
 							/>
 
 							<FormInput
@@ -103,6 +104,7 @@ const AccountSettings = () => {
 								ref={emailRef}
 								label="Email"
 								placeholder={currentUser.email}
+								required
 							/>
 
 							<FormInput

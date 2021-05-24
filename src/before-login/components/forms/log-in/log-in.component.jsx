@@ -26,7 +26,7 @@ const LogIn = () => {
 			await login(emailRef.current.value, passwordRef.current.value);
 			history.push('/dashboard');
 		} catch {
-			setError('Failed to log in');
+			alert('Failed to log in');
 		}
 		setLoading(false);
 	};
