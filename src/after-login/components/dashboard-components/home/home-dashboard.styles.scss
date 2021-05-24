@@ -10,6 +10,11 @@
 	overflow: auto;
 	padding: 0 5rem;
 
+	&__coming-soon {
+		font-size: 2rem;
+		font-weight: 600;
+	}
+
 	&__title {
 		display: flex;
 		align-items: flex-end;

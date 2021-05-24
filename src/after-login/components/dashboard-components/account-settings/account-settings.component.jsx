@@ -45,16 +45,15 @@ const AccountSettings = () => {
 			promises.push(updateEmail(emailRef.current.value));
 		}
 
-		if (passwordRef.current.value !== currentUser.password) {
+		if (passwordRef.current.value) {
 			promises.push(updatePassword(passwordRef.current.value));
 		}
 		Promise.all(promises)
 			.then(() => {
-				alert('success');
 				history.push('/dashboard');
 			})
 			.catch(error => {
-				alert(error);
+				setError(error);
 			})
 			.finally(() => {
 				setLoading(false);
@@ -68,7 +67,7 @@ const AccountSettings = () => {
 			setModal(!modal);
 			history.push('/log-in');
 		} catch (error) {
-			alert(error);
+			setError(error);
 		}
 	};
 
@@ -111,6 +110,7 @@ const AccountSettings = () => {
 								type="password"
 								name="password"
 								ref={passwordRef}
+								placeholder="Leave blank if you wish to keep password"
 								label="Password"
 							/>
 						</div>
@@ -120,6 +120,7 @@ const AccountSettings = () => {
 								type="password"
 								name="password"
 								ref={passwordConfirmRef}
+								placeholder="Leave blank if you wish to keep password"
 								label="Confirm Password"
 							/>
 						</div>

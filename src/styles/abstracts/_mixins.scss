@@ -20,10 +20,26 @@
 	height: 100%;
 	border-radius: 1.5rem;
 	transition: ease-in 0.2s;
-	cursor: pointer;
+	// cursor: pointer;
 
-	&:hover {
-		width: 90%;
+	&::after {
+		position: absolute;
+		content: 'Coming Soon';
+
+		top: 2rem;
+		right: -3rem;
+		padding: 0.5rem;
+		width: 12rem;
+		background: $color-secondary;
+		color: white;
+		text-align: center;
+		font-family: 'Roboto', sans-serif;
+		box-shadow: 4px 4px 15px rgba(26, 35, 126, 0.2);
+		transform: rotate(45deg);
 	}
-}
 
+	// TODO Add back when practice features have been added
+	// &:hover {
+	// 	width: 90%;
+	// }
+}

@@ -11,9 +11,23 @@ const EvalQuizFinal = props => {
 		if (props.finalScore === props.quizLength) {
 			return 'C1';
 		}
-	};
 
-	console.log(currentUser);
+		if (props.finalScore === 4) {
+			return 'B2';
+		}
+
+		if (props.finalScore === 3) {
+			return 'B1';
+		}
+
+		if (props.finalScore === 2) {
+			return 'A2';
+		}
+
+		if (props.finalScore < 2) {
+			return 'A1';
+		}
+	};
 
 	const saveUserEnglishLevel = () => {
 		createUserProfileDocument(currentUser, {

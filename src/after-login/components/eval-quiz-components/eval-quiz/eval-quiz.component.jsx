@@ -17,17 +17,18 @@ const EvalQuiz = () => {
 	const [userScore, setUserScore] = useState(0);
 	const [selectOption, setSelectOption] = useState();
 	const [grade, setGrade] = useState(true);
+	const [options, setOptions] = useState(
+		_.shuffle(evalQuestions[currentQuestion].options)
+	);
 
 	const nextQuestion = currentQuestion + 1;
-
-	// const shuffle = _.shuffle([1, 2, 3, 4]);
-	// console.log(shuffle);
 
 	const nextButtonHandler = () => {
 		setCurrentQuestion(nextQuestion);
 		setNextButton(false);
 		setCheckButton(true);
 		setSelectOption(null);
+		setOptions(_.shuffle(evalQuestions[nextQuestion].options));
 	};
 
 	const checkButtonHandler = isCorrect => {
@@ -78,8 +79,6 @@ const EvalQuiz = () => {
 		}
 	};
 
-	// const shuffleOptions = _.shuffle(evalQuestions[currentQuestion].options);
-
 	return (
 		<React.Fragment>
 			{!quizFinal ? (
@@ -95,45 +94,42 @@ const EvalQuiz = () => {
 							{evalQuestions[currentQuestion].question}
 						</h1>
 
-						{evalQuestions[currentQuestion].options.map(
-							(option, i) => {
-								// {TODO: Fix shuffle option method}
-								return (
-									<label
-										htmlFor={option.id}
-										key={i}
-										className={`quiz-box__option-container ${updateOptionClass(
-											option.optionText
-										)} ${updateCorrectAnswer(
-											option.isCorrect
-										)}`}
-										style={
-											nextButton
-												? { pointerEvents: 'none' }
-												: { pointerEvents: 'auto' }
-										}
-										onClick={() => {
-											setSelectOption(option.optionText);
-											setGrade(option.isCorrect);
-										}}
-									>
-										{checkButton && (
-											<input
-												name="option"
-												type="radio"
-												value={option.optionText}
-												id={option.id}
-												className="quiz-box__option"
-											/>
-										)}
+						{options.map((option, i) => {
+							return (
+								<label
+									htmlFor={option.id}
+									key={i}
+									className={`quiz-box__option-container ${updateOptionClass(
+										option.optionText
+									)} ${updateCorrectAnswer(
+										option.isCorrect
+									)}`}
+									style={
+										nextButton
+											? { pointerEvents: 'none' }
+											: { pointerEvents: 'auto' }
+									}
+									onClick={() => {
+										setSelectOption(option.optionText);
+										setGrade(option.isCorrect);
+									}}
+								>
+									{checkButton && (
+										<input
+											name="option"
+											type="radio"
+											value={option.optionText}
+											id={option.id}
+											className="quiz-box__option"
+										/>
+									)}
 
-										<span className="quiz-box__option-text">
-											{option.optionText}
-										</span>
-									</label>
-								);
-							}
-						)}
+									<span className="quiz-box__option-text">
+										{option.optionText}
+									</span>
+								</label>
+							);
+						})}
 
 						<QuizFooter
 							onClickCheck={() => checkButtonHandler(grade)}

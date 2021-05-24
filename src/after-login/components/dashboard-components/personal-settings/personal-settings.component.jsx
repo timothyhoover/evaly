@@ -25,6 +25,7 @@ const PersonalSettings = () => {
 			city: cityRef.current.value,
 			bio: bioRef.current.value,
 		});
+		history.push('/dashboard');
 	};
 
 	const handleCityPlaceholderText = () => {

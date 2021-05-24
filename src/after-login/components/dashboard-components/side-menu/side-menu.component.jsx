@@ -25,7 +25,6 @@ const SideMenu = () => {
 				</svg>
 				<h3 className="side-menu__text">Home</h3>
 			</NavLink>
-
 			<NavLink
 				to="/dashboard/eval"
 				className="side-menu__tab"
@@ -37,7 +36,7 @@ const SideMenu = () => {
 				</svg>
 				<h3 className="side-menu__text">Eval</h3>
 			</NavLink>
-
+			{/* TODO Add resutls to firestore */}
 			<NavLink
 				to="/dashboard/practice"
 				className="side-menu__tab"
@@ -49,7 +48,8 @@ const SideMenu = () => {
 				<h3 className="side-menu__text">Practice</h3>
 			</NavLink>
 
-			<NavLink
+			{/* TODO Add resutls to firestore 
+			{/*<NavLink
 				to="/dashboard/results"
 				className="side-menu__tab"
 				activeClassName="side-menu__tab--active"
@@ -58,7 +58,7 @@ const SideMenu = () => {
 					<use href={sprite + '#presentation'}></use>
 				</svg>
 				<h3 className="side-menu__text">Results</h3>
-			</NavLink>
+			</NavLink>*/}
 		</div>
 	);
 };

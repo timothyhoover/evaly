@@ -15,7 +15,8 @@ const AfterLoginRoutes = () => {
 			<Route exact path="/dashboard" component={HomeDashboard} />
 			<Route path="/dashboard/eval" component={Eval} />
 			<Route path="/dashboard/practice" component={Practice} />
-			<Route path="/dashboard/results" component={Results} />
+			{/* TODO Add resutls to firestore */}
+			{/*<Route path="/dashboard/results" component={Results} />*/}
 			<Route
 				path="/dashboard/account-settings"
 				component={AccountSettings}

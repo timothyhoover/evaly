@@ -50,23 +50,31 @@
 	}
 
 	&__card-content-reading {
+		position: relative;
 		@include practice-cards;
 		background-color: $color-red-transparent;
+		overflow: hidden;
 	}
 
 	&__card-content-writing {
+		position: relative;
 		@include practice-cards;
 		background-color: $color-tertiary-transparent;
+		overflow: hidden;
 	}
 
 	&__card-content-listening {
+		position: relative;
 		@include practice-cards;
 		background-color: $color-secondary-transparent;
+		overflow: hidden;
 	}
 
 	&__card-content-speaking {
+		position: relative;
 		@include practice-cards;
 		background-color: $color-green-transparent;
+		overflow: hidden;
 	}
 
 	&__card-arrow {

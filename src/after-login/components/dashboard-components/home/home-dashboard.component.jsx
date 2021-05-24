@@ -16,6 +16,12 @@ const HomeDashboard = () => {
 		);
 	};
 
+	const handleCurrentLevelCard = () => {
+		return !userInfo || userInfo.currentLevel === undefined
+			? 'Start a new eval to see your level'
+			: `You scored a ${userInfo.currentLevel} in your last eval`;
+	};
+
 	return (
 		<div className="home-dash">
 			<div className="home-dash__title">{handleCurrentLevel()}</div>
@@ -29,7 +35,7 @@ const HomeDashboard = () => {
 						Latest Eval Results
 					</h3>
 					<div className="home-dash__card-result-text">
-						You scored a B1 level on your last evaluation
+						{handleCurrentLevelCard()}
 					</div>
 					<Link to="/eval-quiz">
 						<button className="home-dash__card-btn--purple">
@@ -37,19 +43,27 @@ const HomeDashboard = () => {
 						</button>
 					</Link>
 				</div>
-				<div className="home-dash__card-2">
-					<svg className="icon home-dash__card-icon">
-						<use href={sprite + '#card-icon-lightbulb'}></use>
-					</svg>
+				{/* TODO Add resutls to firestore */}
+				{
+					<div className="home-dash__card-2">
+						<svg className="icon home-dash__card-icon">
+							<use href={sprite + '#card-icon-lightbulb'}></use>
+						</svg>
 
-					<h3 className="home-dash__card-title">Areas to practice</h3>
-					<div className="home-dash__card-result-text">
-						We recommend working on reading skills
+						<h3 className="home-dash__card-title">
+							Areas to practice
+						</h3>
+						<div className="home-dash__card-result-text">
+							We recommend working on reading skills
+						</div>
+						{/*<button className="home-dash__card-btn--blue">
+							Practice
+				</button>*/}
+						<div className="home-dash__coming-soon">
+							Coming soon!
+						</div>
 					</div>
-					<button className="home-dash__card-btn--blue">
-						Practice
-					</button>
-				</div>
+				}
 			</div>
 		</div>
 	);
