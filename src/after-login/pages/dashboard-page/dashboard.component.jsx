@@ -8,7 +8,7 @@ import './dashboard.styles.scss';
 
 const Dashboard = () => {
 	return (
-		<div className="container">
+		<div className="dashboard-container">
 			<div className="dashboard">
 				<SideMenu />
 				<div className="dashboard__main">

@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../../../assets/sprite.svg';
-import { useAuth } from '../../../../context/auth-context';
 import UserProfile from '../../../../user-profile/user-profile';
 import './home-dashboard.styles.scss';
 

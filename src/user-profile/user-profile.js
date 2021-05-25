@@ -5,6 +5,7 @@ import { createUserProfileDocument } from '../firebase.utils';
 const UserProfile = () => {
 	const { currentUser } = useAuth();
 	const [userInfo, setUserInfo] = useState();
+	const [loading, setLoading] = useState(true);
 
 	const setUserData = async () => {
 		if (currentUser) {
@@ -19,18 +20,8 @@ const UserProfile = () => {
 	};
 
 	useEffect(() => {
-		let isMounted = true;
-		if (isMounted) {
-			setUserData();
-		}
-
-		return () => {
-			isMounted = false;
-		};
+		setUserData();
 	}, []);
-
-	console.log(currentUser);
-	console.log(userInfo);
 
 	return { userInfo };
 };

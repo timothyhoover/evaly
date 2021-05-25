@@ -17,19 +17,18 @@ const TopMenu = () => {
 		<div className="wrapper">
 			<div className="top-menu">
 				<div className="logo top-menu__logo">evaly</div>
-				<a
-					href="#"
-					className="top-menu__profile"
-					onClick={handleDropdown}
-				>
+				<a className="top-menu__profile" onClick={handleDropdown}>
 					<img
 						src={currentUser.photoURL}
 						alt="Profile Picture"
 						className="top-menu__profile-img"
 					/>
-					<p className="top-menu__profile-name">
-						{currentUser.displayName}
-					</p>
+					<div className="top-menu__profile-name-wrapper">
+						<p className="top-menu__profile-name">
+							{currentUser.displayName}
+						</p>
+					</div>
+
 					<svg className="icon top-menu__arrow-icon">
 						<use href={sprite + '#arrow-down'}></use>
 					</svg>

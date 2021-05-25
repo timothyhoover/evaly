@@ -11,6 +11,7 @@
 	transition: all 0.2s;
 
 	&:hover {
+		background-color: $color-primary;
 		filter: brightness(110%);
 	}
 }
@@ -80,6 +81,7 @@
 	transition: all 0.2s;
 
 	&:hover {
+		background-color: $color-red;
 		filter: brightness(110%);
 	}
 }
