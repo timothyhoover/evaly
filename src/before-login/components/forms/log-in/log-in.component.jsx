@@ -23,12 +23,13 @@ const LogIn = () => {
 			setError('');
 			setLoading(true);
 			await login(emailRef.current.value, passwordRef.current.value);
+			setLoading(false);
 			history.push('/dashboard');
 		} catch {
+			setLoading(false);
 			setError('Failed to log in');
 		}
 		console.log(error);
-		setLoading(false);
 	};
 
 	const handleGoogleSignIn = async () => {

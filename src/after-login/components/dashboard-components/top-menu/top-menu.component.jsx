@@ -8,10 +8,9 @@ import Modal from '../modal/modal.component';
 import './top-menu.styles.scss';
 
 const TopMenu = () => {
-	const { currentUser } = useAuth();
+	const { currentUser, logout } = useAuth();
 	const [modal, setModal] = useState();
 	const [error, setError] = useState();
-	const { logout } = useAuth();
 	const history = useHistory();
 
 	const handleLogout = async () => {
@@ -21,7 +20,8 @@ const TopMenu = () => {
 			setModal(!modal);
 			history.push('/log-in');
 		} catch (error) {
-			alert(error);
+			setError(error);
+			console.log(error);
 		}
 	};
 

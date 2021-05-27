@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useUser } from '../../../../context/user-context';
 import HeaderSettings from '../header-settings/header-settings.component';
 import FormInput from '../../../../before-login/components/forms/form-input/form-input.component';
-import CountryOption from '../../../../rest-country/rest-country-api';
+import CountryOption from '../../../../apis/rest-country-api';
 import './personal-settings.styles.scss';
 
 const PersonalSettings = () => {

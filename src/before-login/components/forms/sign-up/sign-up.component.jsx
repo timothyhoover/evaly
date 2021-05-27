@@ -25,12 +25,13 @@ const SignUp = () => {
 			setLoading(true);
 			await signup(emailRef.current.value, passwordRef.current.value);
 			await setName(nameRef.current.value);
+			setLoading(false);
 
 			history.push('/dashboard');
 		} catch {
 			alert(error);
+			setLoading(false);
 		}
-		setLoading(false);
 	};
 
 	const handleGoogleSignIn = async () => {
