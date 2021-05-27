@@ -64,14 +64,6 @@ export const AuthProvider = ({ children }) => {
 		return google;
 	};
 
-	const updatePersonalSettings = data => {
-		createUserProfileDocument(currentUser, data);
-	};
-
-	const updateAccountSettings = data => {
-		createUserProfileDocument(currentUser, data);
-	};
-
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged(user => {
 			setCurrentUser(user);
@@ -91,8 +83,6 @@ export const AuthProvider = ({ children }) => {
 		updateName,
 		setName,
 		googleSignIn,
-		updatePersonalSettings,
-		updateAccountSettings,
 		deleteProfile,
 	};
 

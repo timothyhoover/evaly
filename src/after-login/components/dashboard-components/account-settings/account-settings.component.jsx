@@ -19,9 +19,7 @@ const AccountSettings = () => {
 		updatePassword,
 		updateName,
 		deleteProfile,
-		updateAccountSettings,
 	} = useAuth();
-	const { userInfo } = useUser();
 	const [error, setError] = useState();
 	const [loading, setLoading] = useState(false);
 	const [modal, setModal] = useState();

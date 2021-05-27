@@ -6,13 +6,12 @@ import FormHeader from '../form-header/form-header.component';
 import FormInput from '../form-input/form-input.component';
 import FormWrapper from '../form-wrapper/form-wrapper.component';
 import SocialButton from '../social-button/social-button.component';
-import { auth } from '../../../../firebase.utils';
 import './log-in.styles.scss';
 
 const LogIn = () => {
 	const emailRef = useRef();
 	const passwordRef = useRef();
-	const { login, currentUser, googleSignIn } = useAuth();
+	const { login, googleSignIn } = useAuth();
 	const [error, setError] = useState();
 	const [loading, setLoading] = useState(false);
 	const history = useHistory();
@@ -26,8 +25,9 @@ const LogIn = () => {
 			await login(emailRef.current.value, passwordRef.current.value);
 			history.push('/dashboard');
 		} catch {
-			alert('Failed to log in');
+			setError('Failed to log in');
 		}
+		console.log(error);
 		setLoading(false);
 	};
 
@@ -67,6 +67,7 @@ const LogIn = () => {
 				</div>
 				<div className="log-in__form-bottom">
 					<button
+						disabled={loading}
 						type="submit"
 						className="btn-primary log-in-box__btn"
 					>

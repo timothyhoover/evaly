@@ -16,12 +16,10 @@
 		height: 100%;
 	}
 
-	@media only screen and (max-width: $bp-medium) {
-	}
-
 	&__title {
 		justify-self: flex-start;
 		width: 100%;
+		height: auto;
 		font-size: 2.5rem;
 	}
 
@@ -31,6 +29,7 @@
 		align-items: center;
 		width: 100%;
 		height: auto;
+		margin-top: -3rem;
 
 		& > * {
 			width: 90%;
@@ -70,6 +69,7 @@
 	}
 
 	&__input-about {
+		font-size: 1.6rem;
 		resize: none;
 		color: $color-blue-dark;
 		border: 1px solid $color-blue-dark;

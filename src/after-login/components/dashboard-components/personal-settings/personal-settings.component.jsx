@@ -1,21 +1,16 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useAuth } from '../../../../context/auth-context';
+import { useUser } from '../../../../context/user-context';
 import HeaderSettings from '../header-settings/header-settings.component';
 import FormInput from '../../../../before-login/components/forms/form-input/form-input.component';
 import CountryOption from '../../../../rest-country/rest-country-api';
-import { useUser } from '../../../../context/user-context';
-
 import './personal-settings.styles.scss';
 
 const PersonalSettings = () => {
 	const countryRef = useRef();
 	const cityRef = useRef();
 	const bioRef = useRef();
-	const [error, setError] = useState();
-	const [loading, setLoading] = useState(false);
-	const { updatePersonalSettings } = useAuth();
-	const { userInfo } = useUser();
+	const { userInfo, updatePersonalSettings } = useUser();
 	const history = useHistory();
 
 	const handleSubmit = event => {
@@ -37,7 +32,7 @@ const PersonalSettings = () => {
 
 	const handleBioPlaceholderText = () => {
 		return !userInfo || userInfo.city === undefined
-			? 'Tell us a little about your self'
+			? 'Introduce yourself'
 			: userInfo.bio;
 	};
 
@@ -52,7 +47,6 @@ const PersonalSettings = () => {
 			<HeaderSettings />
 			<form onSubmit={handleSubmit} className="personal-sett__form">
 				<h3 className="personal-sett__title">Personal Settings</h3>
-
 				<div className="personal-sett__input-wrapper">
 					<label
 						htmlFor="country"

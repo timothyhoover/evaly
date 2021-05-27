@@ -5,6 +5,7 @@ import { useUser } from '../../../../context/user-context';
 import './home-dashboard.styles.scss';
 const HomeDashboard = () => {
 	const { userInfo } = useUser();
+
 	const handleCurrentLevel = () => {
 		return !userInfo || userInfo.currentLevel === undefined ? (
 			<h1>Welcome! Start your eval to see your level</h1>
@@ -21,7 +22,9 @@ const HomeDashboard = () => {
 
 	return (
 		<div className="home-dash">
-			<div className="home-dash__title">{handleCurrentLevel()}</div>
+			<div className="home-dash__title-wrapper">
+				<div className="home-dash__title">{handleCurrentLevel()}</div>
+			</div>
 			<div className="home-dash__cards">
 				<div className="home-dash__card-1">
 					<svg className="icon home-dash__card-icon">
@@ -40,27 +43,21 @@ const HomeDashboard = () => {
 						</button>
 					</Link>
 				</div>
-				{/* TODO Add resutls to firestore */}
-				{
-					<div className="home-dash__card-2">
-						<svg className="icon home-dash__card-icon">
-							<use href={sprite + '#card-icon-lightbulb'}></use>
-						</svg>
 
-						<h3 className="home-dash__card-title">
-							Areas to practice
-						</h3>
-						<div className="home-dash__card-result-text">
-							We recommend working on reading skills
-						</div>
-						{/*<button className="home-dash__card-btn--blue">
+				<div className="home-dash__card-2">
+					<svg className="icon home-dash__card-icon">
+						<use href={sprite + '#card-icon-lightbulb'}></use>
+					</svg>
+
+					<h3 className="home-dash__card-title">Areas to practice</h3>
+					<div className="home-dash__card-result-text">
+						We recommend working on reading skills
+					</div>
+					{/*<button className="home-dash__card-btn--blue">
 							Practice
 				</button>*/}
-						<div className="home-dash__coming-soon">
-							Coming soon!
-						</div>
-					</div>
-				}
+					<div className="home-dash__coming-soon">Coming soon!</div>
+				</div>
 			</div>
 		</div>
 	);

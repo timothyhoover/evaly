@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../../../context/auth-context';
 import { useHistory } from 'react-router';
-import { Link, NavLink } from 'react-router-dom';
 import { LinkContainer } from 'react-router-bootstrap';
 import sprite from '../../../../assets/sprite.svg';
-import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Navbar, NavDropdown } from 'react-bootstrap';
 import Modal from '../modal/modal.component';
 import './top-menu.styles.scss';
 
