@@ -4,7 +4,8 @@ import { useAuth } from '../../../../context/auth-context';
 import HeaderSettings from '../header-settings/header-settings.component';
 import FormInput from '../../../../before-login/components/forms/form-input/form-input.component';
 import CountryOption from '../../../../rest-country/rest-country-api';
-import UserProfile from '../../../../user-profile/user-profile';
+import { useUser } from '../../../../context/user-context';
+
 import './personal-settings.styles.scss';
 
 const PersonalSettings = () => {
@@ -14,7 +15,7 @@ const PersonalSettings = () => {
 	const [error, setError] = useState();
 	const [loading, setLoading] = useState(false);
 	const { updatePersonalSettings } = useAuth();
-	const { userInfo } = UserProfile();
+	const { userInfo } = useUser();
 	const history = useHistory();
 
 	const handleSubmit = event => {

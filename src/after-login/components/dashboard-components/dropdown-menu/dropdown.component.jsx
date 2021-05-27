@@ -3,7 +3,6 @@ import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../../../../context/auth-context';
 import sprite from '../../../../assets/sprite.svg';
 import Modal from '../modal/modal.component';
-import { Dropdown } from 'react-bootstrap';
 import './dropdown.styles.scss';
 
 const Dropdown = (props, ref) => {

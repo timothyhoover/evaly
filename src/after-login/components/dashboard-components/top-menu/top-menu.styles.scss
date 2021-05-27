@@ -12,7 +12,6 @@
 	justify-content: flex-end;
 	width: 100%;
 	height: 100%;
-	padding-right: 5rem;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08);
 	background-color: #fff;
 	z-index: 800;
@@ -24,7 +23,7 @@
 		width: 100%;
 		justify-content: center;
 		align-items: center;
-		overflow: hidden;
+		// overflow: hidden;
 		padding: 0 5rem;
 	}
 
@@ -40,17 +39,15 @@
 		}
 	}
 
-	&__profile {
+	&__profile-wrapper {
 		display: flex;
-		justify-content: flex-end;
 		align-items: center;
-		width: 100%;
-		cursor: pointer;
 	}
 
 	&__profile-img {
-		max-width: 4rem;
-		margin-right: 1rem;
+		width: auto;
+		height: 50%;
+		margin-right: 5px;
 		border-radius: 100%;
 	}
 
@@ -68,4 +65,78 @@
 		min-width: 1.4rem;
 		max-width: 1.4rem;
 	}
+}
+
+.profile-img {
+	width: auto;
+	height: 3rem;
+	border-radius: 100%;
+}
+
+.nav-link {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+
+	height: auto;
+	cursor: pointer;
+	background-color: transparent;
+	color: $color-blue-dark !important;
+	padding-right: 3rem;
+	border: none;
+	font-size: 1.3rem;
+}
+
+#top-menu-profile:focus {
+	box-shadow: none;
+	border: none;
+	outline: none;
+	color: none;
+}
+
+.dropdown-item:hover {
+	background: none;
+}
+
+.dropdown-item {
+	text-align: center;
+	font-size: 1.2rem;
+	font-weight: 500;
+	margin-bottom: 3rem;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.dropdown-log-out {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: auto;
+	height: 4rem;
+	cursor: pointer;
+}
+
+.dropdown-item-log-out {
+	font-size: 1.2rem;
+	font-weight: 300;
+	padding: 0;
+	margin: 0;
+	color: $color-grey-light-2;
+}
+
+.dropdown-icon {
+	height: 60%;
+	width: 10%;
+	margin-right: 0.5rem;
+}
+
+.dropdown-menu {
+	transform: translate(-65%, 10%);
+	padding: 3rem;
+	border-radius: 1rem;
+	background-color: #fff;
+	border: none;
+	@include box-shadow-primary;
 }

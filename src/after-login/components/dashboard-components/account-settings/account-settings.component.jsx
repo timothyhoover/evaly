@@ -4,7 +4,8 @@ import { useHistory } from 'react-router-dom';
 import HeaderSettings from '../header-settings/header-settings.component';
 import FormInput from '../../../../before-login/components/forms/form-input/form-input.component';
 import Modal from '../modal/modal.component';
-import UserProfile from '../../../../user-profile/user-profile';
+import { useUser } from '../../../../context/user-context';
+
 import './account-settings.styles.scss';
 
 const AccountSettings = () => {
@@ -20,11 +21,11 @@ const AccountSettings = () => {
 		deleteProfile,
 		updateAccountSettings,
 	} = useAuth();
+	const { userInfo } = useUser();
 	const [error, setError] = useState();
 	const [loading, setLoading] = useState(false);
 	const [modal, setModal] = useState();
 	const history = useHistory();
-	const { userInfo } = UserProfile();
 
 	const handleSubmit = event => {
 		event.preventDefault();
@@ -54,6 +55,7 @@ const AccountSettings = () => {
 			})
 			.catch(error => {
 				setError(error);
+				console.log(error);
 			})
 			.finally(() => {
 				setLoading(false);

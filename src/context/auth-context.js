@@ -1,5 +1,4 @@
 import React, { useContext, useState, useEffect } from 'react';
-import firebase from 'firebase/app';
 import {
 	auth,
 	signInWithGoogle,
@@ -72,8 +71,6 @@ export const AuthProvider = ({ children }) => {
 	const updateAccountSettings = data => {
 		createUserProfileDocument(currentUser, data);
 	};
-
-	console.log(currentUser);
 
 	useEffect(() => {
 		const unsubscribe = auth.onAuthStateChanged(user => {

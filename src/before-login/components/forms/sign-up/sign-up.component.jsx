@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import { useHistory } from 'react-router-dom';
 import { useAuth } from '../../../../context/auth-context';
@@ -7,13 +7,16 @@ import FormFooter from '../form-footer/form-footer.component';
 import FormWrapper from '../form-wrapper/form-wrapper.component';
 import FormHeader from '../form-header/form-header.component';
 import SocialButton from '../social-button/social-button.component';
+import { createUserProfileDocument } from '../../../../firebase.utils';
+import { useUser } from '../../../../context/user-context';
+
 import './sign-up.styles.scss';
 
 const SignUp = () => {
 	const nameRef = useRef();
 	const emailRef = useRef();
 	const passwordRef = useRef();
-	const { signup, googleSignIn, setName } = useAuth();
+	const { signup, googleSignIn, setName, currentUser } = useAuth();
 	const [error, setError] = useState('');
 	const [loading, setLoading] = useState(false);
 	const history = useHistory();
@@ -26,6 +29,7 @@ const SignUp = () => {
 			setLoading(true);
 			await signup(emailRef.current.value, passwordRef.current.value);
 			await setName(nameRef.current.value);
+
 			history.push('/dashboard');
 		} catch {
 			alert(error);
