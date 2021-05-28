@@ -1,10 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react';
-import {
-	auth,
-	signInWithGoogle,
-	createUserProfileDocument,
-	firestore,
-} from '../firebase.utils';
+import { auth, signInWithGoogle, firestore } from '../firebase.utils';
 
 const AuthContext = React.createContext();
 
@@ -25,7 +20,6 @@ export const AuthProvider = ({ children }) => {
 	};
 
 	const logout = () => {
-		setCurrentUser(null);
 		return auth.signOut();
 	};
 

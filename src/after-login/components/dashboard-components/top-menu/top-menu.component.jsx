@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { useAuth } from '../../../../context/auth-context';
 import { useHistory } from 'react-router';
+import { useAuth } from '../../../../context/auth-context';
 import { LinkContainer } from 'react-router-bootstrap';
-import sprite from '../../../../assets/sprite.svg';
 import { Navbar, NavDropdown } from 'react-bootstrap';
+import sprite from '../../../../assets/sprite.svg';
 import Modal from '../modal/modal.component';
 import './top-menu.styles.scss';
 
@@ -21,6 +21,7 @@ const TopMenu = () => {
 			history.push('/log-in');
 		} catch (error) {
 			setError(error);
+			setModal(!modal);
 			console.log(error);
 		}
 	};
