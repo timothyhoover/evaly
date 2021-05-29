@@ -14,6 +14,7 @@ function App() {
 			<Switch>
 				<BeforeLoginRoutes />
 			</Switch>
+
 			<UserProvider>
 				<PrivateRoute path="/dashboard" component={Dashboard} />
 				<PrivateRoute path="/eval-quiz" component={EvalQuizPage} />

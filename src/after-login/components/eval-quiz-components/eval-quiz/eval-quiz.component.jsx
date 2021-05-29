@@ -4,8 +4,8 @@ import sprite from '../../../../assets/sprite.svg';
 import QuizHeader from './quiz-header.component';
 import ProgressBar from './progress-bar.component';
 import QuizFooter from './quiz-footer.component';
-import _ from 'lodash';
 import { evalQuestions } from '../eval-questions/eval-questions';
+import _ from 'lodash';
 import './eval-quiz.styles.scss';
 
 const EvalQuiz = () => {

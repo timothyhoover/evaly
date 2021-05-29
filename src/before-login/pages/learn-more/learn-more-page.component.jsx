@@ -7,7 +7,6 @@ import './learn-more.styles.scss';
 
 const LearnMorePage = () => (
 	<div className="learn-more-page">
-		<Header />
 		<LearnMoreMain />
 		<LearnMoreBannerBottom />
 		<Footer />

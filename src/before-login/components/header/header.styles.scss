@@ -6,15 +6,13 @@
 	align-items: center;
 	margin-top: 2rem;
 	margin-bottom: 2rem;
-
-	&__logo-container {
-		margin-left: 7rem;
-	}
+	width: 100%;
 
 	&__logo {
 		font-family: $font-primary;
 		font-size: 4.8rem;
 		color: $color-primary;
+		margin-left: 5rem;
 	}
 
 	&__btn-container {
@@ -27,5 +25,22 @@
 
 	&__log-in {
 		margin-right: 3rem;
+	}
+}
+
+.header-log-sign {
+	display: flex;
+	align-items: center;
+	background-color: #fff;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+	padding: 0.5rem 0;
+	height: 10vh;
+	width: 100%;
+
+	&__logo {
+		font-family: $font-primary;
+		font-size: 3.8rem;
+		color: $color-primary;
+		margin-left: 5rem;
 	}
 }

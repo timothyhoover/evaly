@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Route } from 'react-router-dom';
 import HomePage from '../pages/home/homepage.component';
@@ -6,10 +6,12 @@ import LearnMorePage from '../pages/learn-more/learn-more-page.component';
 import LogInPage from '../pages/log-in/log-in-page.comopnent';
 import SignUpPage from '../pages/sign-up/sign-up-page.component';
 import ForgotPasswordPage from '../pages/forgot-password/forgot-password-page.comopnent';
+import Header from '../components/header/header.component';
 
 const BeforeLoginRoutes = () => {
 	return (
 		<React.Fragment>
+			<Header />
 			<Route exact path="/" component={HomePage} />
 			<Route path="/learn-more" component={LearnMorePage} />
 			<Route path="/log-in" component={LogInPage} />

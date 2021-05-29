@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { BrowserRouter as Link } from 'react-router-dom';
 import '../../../assets/high-res/banner-border.png';
 import './learn-more-banner-bottom.styles.scss';
 

@@ -9,7 +9,6 @@ import './homepage.styles.scss';
 
 const HomePage = () => (
 	<div className="homepage">
-		<Header />
 		<MainHero />
 		<BannerTop />
 		<MainSection />

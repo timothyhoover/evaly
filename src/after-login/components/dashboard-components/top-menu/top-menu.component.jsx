@@ -21,7 +21,6 @@ const TopMenu = () => {
 			history.push('/log-in');
 		} catch (error) {
 			setError(error);
-			setModal(!modal);
 			console.log(error);
 		}
 	};
