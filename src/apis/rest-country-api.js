@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const url = 'https://restcountries.eu/rest/v2/all';
 
-const Countries = ({ ...otherProps }, ref) => {
+const Countries = ({ ...otherProps }) => {
 	const [countries, setCountries] = useState([]);
 
 	const fetchCountryData = async () => {
@@ -20,12 +20,7 @@ const Countries = ({ ...otherProps }, ref) => {
 			{countries.map(country => {
 				const { numericCode, name } = country;
 				return (
-					<option
-						{...otherProps}
-						ref={ref}
-						key={numericCode}
-						value={name}
-					>
+					<option {...otherProps} key={numericCode} value={name}>
 						{name}
 					</option>
 				);
@@ -34,6 +29,4 @@ const Countries = ({ ...otherProps }, ref) => {
 	);
 };
 
-const CountryOption = React.forwardRef(Countries);
-
-export default CountryOption;
+export default Countries;

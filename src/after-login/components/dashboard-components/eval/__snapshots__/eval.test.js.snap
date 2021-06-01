@@ -119,11 +119,15 @@ Object {
           <div
             class="eval__btn-box"
           >
-            <button
-              class="btn-secondary eval__button"
+            <a
+              href="/eval-quiz"
             >
-              Start
-            </button>
+              <button
+                class="btn-secondary eval__button"
+              >
+                Start
+              </button>
+            </a>
           </div>
         </div>
       </div>
@@ -244,11 +248,15 @@ Object {
         <div
           class="eval__btn-box"
         >
-          <button
-            class="btn-secondary eval__button"
+          <a
+            href="/eval-quiz"
           >
-            Start
-          </button>
+            <button
+              class="btn-secondary eval__button"
+            >
+              Start
+            </button>
+          </a>
         </div>
       </div>
     </div>

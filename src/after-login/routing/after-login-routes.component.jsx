@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Router } from 'react-router-dom';
 import HomeDashboard from '../components/dashboard-components/home/home-dashboard.component';
 import Eval from '../components/dashboard-components/eval/eval.component';
 import Practice from '../components/dashboard-components/practice/practice.component';

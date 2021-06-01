@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import sprite from '../../../../assets/sprite.svg';
 import { useUser } from '../../../../context/user-context';
 import './home-dashboard.styles.scss';
