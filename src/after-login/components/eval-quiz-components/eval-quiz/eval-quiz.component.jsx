@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import EvalQuizFinal from '../eval-quiz-final/eval-quiz-final.component';
-import sprite from '../../../../assets/sprite.svg';
 import QuizHeader from './quiz-header.component';
 import ProgressBar from './progress-bar.component';
 import QuizFooter from './quiz-footer.component';

@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../../../assets/sprite.svg';
-import { useUser } from '../../../../context/user-context';
 import './home-dashboard.styles.scss';
 
-const HomeDashboard = () => {
-	const { userInfo } = useUser();
-
+const HomeDashboard = ({ userInfo }) => {
 	const handleCurrentLevel = () => {
 		return !userInfo || userInfo.currentLevel === undefined ? (
 			<h1>Welcome! Start your eval to see your level</h1>

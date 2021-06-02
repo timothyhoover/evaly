@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useCallback } from 'react';
 import { useAuth } from './auth-context';
 import { createUserProfileDocument } from '../firebase.utils';
 
@@ -10,14 +10,13 @@ export const useUser = () => {
 
 export const UserProvider = ({ children }) => {
 	const { currentUser } = useAuth();
-	const { userRef } = createUserProfileDocument();
 	const [userInfo, setUserInfo] = useState(null);
 	const [loading, setLoading] = useState(true);
 
 	console.log(userInfo);
 	console.log(currentUser);
 
-	const setUserData = async () => {
+	const setUserData = useCallback(async () => {
 		if (currentUser) {
 			const userRef = await createUserProfileDocument(currentUser);
 			userRef.onSnapshot(doc => {
@@ -31,7 +30,7 @@ export const UserProvider = ({ children }) => {
 		if (!currentUser) {
 			setUserInfo(null);
 		}
-	};
+	}, [currentUser]);
 
 	const updatePersonalSettings = data => {
 		createUserProfileDocument(currentUser, data);
@@ -50,7 +49,7 @@ export const UserProvider = ({ children }) => {
 			setUserData(null);
 		}
 		setLoading(false);
-	}, [currentUser]);
+	}, [currentUser, setUserData]);
 
 	const value = {
 		userInfo,

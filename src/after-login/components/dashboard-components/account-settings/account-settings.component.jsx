@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import HeaderSettings from '../header-settings/header-settings.component';
 import FormInput from '../../../../before-login/components/forms/form-input/form-input.component';
 import Modal from '../modal/modal.component';
-import { useUser } from '../../../../context/user-context';
 
 import './account-settings.styles.scss';
 
@@ -68,6 +67,7 @@ const AccountSettings = () => {
 			history.push('/log-in');
 		} catch (error) {
 			setError(error);
+			console.log(error);
 		}
 	};
 
@@ -127,6 +127,7 @@ const AccountSettings = () => {
 						<div className="account-sett__form-footer">
 							<div className="account-sett__form-footer-container-1">
 								<button
+									disabled={loading}
 									type="submit"
 									className="btn-secondary-green account-sett__save-btn"
 								>
@@ -134,12 +135,12 @@ const AccountSettings = () => {
 								</button>
 							</div>
 							<div className="account-sett__form-footer-container-2">
-								<a
+								<span
 									className="account-sett__delete"
 									onClick={showModalHandler}
 								>
 									Delete Account
-								</a>
+								</span>
 							</div>
 						</div>
 					</form>

@@ -18,11 +18,11 @@ const LearnMoreMain = () => (
 					<button className="btn-secondary">Get Started</button>
 				</Link>
 			</div>
-			<img src={img1} className="main-section-learn__img-1" />
+			<img src={img1} className="main-section-learn__img-1" alt="" />
 		</div>
 
 		<div className="main-section-learn__row-2">
-			<img src={img2} className="main-section-learn__img-2" />
+			<img src={img2} className="main-section-learn__img-2" alt="" />
 			<div className="main-section-learn__content">
 				<h4>Evaluator</h4>
 				<p>
@@ -42,7 +42,7 @@ const LearnMoreMain = () => (
 					but accurate as possible.
 				</p>
 			</div>
-			<img src={img3} className="main-section-learn__img-3" />
+			<img src={img3} className="main-section-learn__img-3" alt="" />
 		</div>
 	</div>
 );

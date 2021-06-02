@@ -38,7 +38,7 @@ const TopMenu = () => {
 						<Navbar id="top-menu-profile">
 							<img
 								src={currentUser.photoURL}
-								alt="Profile Picture"
+								alt="Profile"
 								className="profile-img"
 							/>
 							<Navbar.Collapse>

@@ -2,7 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router';
 
 import sprite from '../../../../assets/sprite.svg';
-import ProgressBar from './progress-bar.component';
 import './quiz-header.styles.scss';
 
 const QuizTop = props => {
@@ -23,11 +22,11 @@ const QuizTop = props => {
 		<div className="top">
 			{props.children}
 			<div className="top__icon-container">
-				<a onClick={handleLeaveQuiz}>
+				<span onClick={handleLeaveQuiz}>
 					<svg className="top__cancel-btn">
 						<use href={sprite + '#cross'}></use>
 					</svg>
-				</a>
+				</span>
 			</div>
 		</div>
 	);

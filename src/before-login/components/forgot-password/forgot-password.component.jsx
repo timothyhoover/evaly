@@ -62,7 +62,10 @@ const ForgotPassword = () => {
 					/>
 
 					<div className="forgot-pass__form-footer">
-						<button className="forgot-pass__reset btn-primary">
+						<button
+							disabled={loading}
+							className="forgot-pass__reset btn-primary"
+						>
 							Reset
 						</button>
 

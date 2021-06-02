@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import sprite from '../../../../assets/sprite.svg';
-import styles from './side-menu.styles.scss';
 import './side-menu.styles.scss';
 
 const SideMenu = () => {
