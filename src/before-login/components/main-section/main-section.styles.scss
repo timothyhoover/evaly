@@ -59,24 +59,37 @@
 	}
 
 	&__img-1 {
-		height: 50rem;
-		width: auto;
+		height: auto;
+		width: 30%;
+
+		@media only screen and (max-width: $bp-medium) {
+			width: 80%;
+		}
 	}
 
 	&__img-2 {
-		height: 50rem;
-		width: auto;
+		height: auto;
+		width: 30%;
+
+		@media only screen and (max-width: $bp-medium) {
+			width: 80%;
+		}
 	}
 
 	&__img-3 {
-		height: 50rem;
-		width: auto;
+		height: auto;
+		width: 25%;
+
+		@media only screen and (max-width: $bp-medium) {
+			width: 75%;
+		}
 	}
 
 	&__img-4 {
-		height: 50rem;
-		width: auto;
+		height: auto;
+		width: 30%;
 		@media only screen and (max-width: $bp-medium) {
+			width: 80%;
 			margin-bottom: -12rem;
 		}
 	}

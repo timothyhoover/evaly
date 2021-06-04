@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import sprite from '../../../../assets/sprite.svg';
+import Results from '../results/results.component';
 import './side-menu.styles.scss';
 
 const SideMenu = () => {
@@ -47,8 +48,7 @@ const SideMenu = () => {
 				<h3 className="side-menu__text">Practice</h3>
 			</NavLink>
 
-			{/* TODO Add resutls to firestore 
-			{/*<NavLink
+			<NavLink
 				to="/dashboard/results"
 				className="side-menu__tab"
 				activeClassName="side-menu__tab--active"
@@ -57,7 +57,7 @@ const SideMenu = () => {
 					<use href={sprite + '#presentation'}></use>
 				</svg>
 				<h3 className="side-menu__text">Results</h3>
-			</NavLink>*/}
+			</NavLink>
 		</div>
 	);
 };

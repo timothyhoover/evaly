@@ -7,6 +7,10 @@
 	height: 100%;
 	width: 100%;
 
+	@media only screen and (max-width: $bp-large) {
+		margin-top: 10rem;
+	}
+
 	&__content-wrapper {
 		display: flex;
 		justify-content: flex-end;
@@ -26,13 +30,21 @@
 		width: 85%;
 		height: auto;
 
+		@media only screen and (max-width: $bp-medium) {
+			align-items: center;
+		}
+
 		h1 {
-			margin-bottom: 5rem;
-			line-height: 1rem;
+			margin-bottom: 2rem;
+			line-height: 1.6;
 			white-space: nowrap;
 
 			@media only screen and (max-width: $bp-largest) {
-				font-size: 5rem;
+				font-size: 4rem;
+			}
+
+			@media only screen and (max-width: $bp-medium) {
+				text-align: left;
 			}
 		}
 
@@ -41,6 +53,7 @@
 			font-weight: 500;
 			margin-bottom: 3rem;
 			line-height: 1.8;
+			width: 80%;
 		}
 
 		@media only screen and (max-width: $bp-medium) {
@@ -49,8 +62,15 @@
 	}
 
 	&__icon {
+		position: absolute;
 		width: 13rem;
-		transform: translate(0, -15%);
+		height: auto;
+		// margin-bottom: -4rem;
+		transform: translate(0, -43%);
+
+		@media only screen and (max-width: $bp-large) {
+			transform: translate(0, -43%);
+		}
 	}
 
 	&__button-wrapper {
@@ -77,23 +97,13 @@
 	}
 
 	&__img {
-		height: 100%;
-		width: auto;
-
-		@media only screen and (max-width: $bp-largest) {
-			height: 45rem;
-		}
+		height: auto;
+		width: 100%;
 	}
 
 	@media only screen and (max-width: $bp-medium) {
 		flex-wrap: wrap;
 		justify-content: center;
 		text-align: center;
-	}
-
-	@media only screen and (max-width: $bp-large) {
-		&__icon {
-			transform: translate(0, -10%);
-		}
 	}
 }

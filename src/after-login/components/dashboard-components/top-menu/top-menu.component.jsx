@@ -6,6 +6,7 @@ import { Navbar, NavDropdown } from 'react-bootstrap';
 import sprite from '../../../../assets/sprite.svg';
 import Modal from '../modal/modal.component';
 import './top-menu.styles.scss';
+import { Link } from 'react-router-dom';
 
 const TopMenu = () => {
 	const { currentUser, logout } = useAuth();
@@ -33,7 +34,9 @@ const TopMenu = () => {
 		<React.Fragment>
 			<div className="wrapper">
 				<div className="top-menu">
-					<div className="logo top-menu__logo">evaly</div>
+					<Link to="/dashboard">
+						<div className="logo top-menu__logo">evaly</div>
+					</Link>
 					<div className="top-menu__profile-wrapper">
 						<Navbar id="top-menu-profile">
 							<img

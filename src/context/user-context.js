@@ -13,9 +13,6 @@ export const UserProvider = ({ children }) => {
 	const [userInfo, setUserInfo] = useState(null);
 	const [loading, setLoading] = useState(true);
 
-	console.log(userInfo);
-	console.log(currentUser);
-
 	const setUserData = useCallback(async () => {
 		if (currentUser) {
 			const userRef = await createUserProfileDocument(currentUser);

@@ -18,12 +18,14 @@
 		transform: translate(0, -60%);
 
 		@media only screen and (max-width: $bp-medium) {
+			height: 32%;
 			transform: translate(0, -45%);
 		}
 	}
 
 	&__item {
 		text-align: center;
+		width: 80%;
 		color: #fff;
 		z-index: 1000;
 

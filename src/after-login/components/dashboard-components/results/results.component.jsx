@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import sprite from '../../../../assets/sprite.svg';
+import { useAuth } from '../../../../context/auth-context';
+import { userEvalResults } from '../../../../firebase.utils';
 import './results.styles.scss';
 
 const Results = () => {
+	const { currentUser } = useAuth();
+	const [results, setResults] = useState();
+
+	console.log(results);
+	const setUserResults = useCallback(async () => {
+		if (currentUser) {
+			const userRef = await userEvalResults(currentUser);
+			userRef.onSnapshot(doc => {
+				setResults({
+					...doc.data(),
+				});
+			});
+		}
+
+		if (!currentUser) {
+			setResults(null);
+		}
+	}, [currentUser]);
+
+	useEffect(() => {
+		if (currentUser) {
+			setUserResults();
+		}
+
+		if (!currentUser) {
+			setResults(null);
+		}
+	}, [currentUser, setUserResults]);
+
 	return (
 		<div className="results">
 			<h1 className="results__title">Results</h1>
@@ -13,52 +44,27 @@ const Results = () => {
 				<div className="results__card">
 					<div className="results__card-box">
 						<h3 className="results__card-title">Eval History</h3>
-						<table className="results__card-table">
-							<thead>
-								<tr className="results__card-table__header">
-									<th>Date</th>
-									<th>Result</th>
-								</tr>
-							</thead>
-							<tbody className="results__card-table__body">
-								<tr className="results__card-table__body-data">
-									<td>11/06/2022</td>
-									<td>B2</td>
-								</tr>
-								<tr className="results__card-table__body-data">
-									<td>08/11/2021</td>
-									<td>B1</td>
-								</tr>
-								<tr className="results__card-table__body-data">
-									<td>17/03/2022</td>
-									<td>B2</td>
-								</tr>
-								<tr className="results__card-table__body-data">
-									<td>11/06/2022</td>
-									<td>B2</td>
-								</tr>
-								<tr className="results__card-table__body-data">
-									<td>08/11/2021</td>
-									<td>B1</td>
-								</tr>
-								<tr className="results__card-table__body-data">
-									<td>17/03/2022</td>
-									<td>B2</td>
-								</tr>
-								<tr className="results__card-table__body-data">
-									<td>11/06/2022</td>
-									<td>B2</td>
-								</tr>
-								<tr className="results__card-table__body-data">
-									<td>08/11/2021</td>
-									<td>B1</td>
-								</tr>
-								<tr className="results__card-table__body-data">
-									<td>17/03/2022</td>
-									<td>B2</td>
-								</tr>
-							</tbody>
-						</table>
+						{results && (
+							<table className="results__card-table">
+								<thead>
+									<tr className="results__card-table__header">
+										<th>Date</th>
+										<th>Result</th>
+									</tr>
+								</thead>
+
+								<tbody className="results__card-table__body">
+									{results.evals
+										.map(({ results: { level, date } }) => (
+											<tr className="results__card-table__body-data">
+												<td>{date}</td>
+												<td>{level}</td>
+											</tr>
+										))
+										.reverse()}
+								</tbody>
+							</table>
+						)}
 					</div>
 				</div>
 			</div>

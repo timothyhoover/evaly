@@ -50,6 +50,54 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 	return userRef;
 };
 
+export const userEvalResults = async (userAuth, results) => {
+	if (!userAuth) return;
+
+	const evalRef = firestore.doc(`evals/${userAuth.uid}`);
+	const snapshot = await evalRef.get();
+	const options = { month: 'long' };
+	const date = new Date();
+	const month = new Intl.DateTimeFormat('en-US', options).format(date);
+	const day = date.getDate();
+	const year = date.getFullYear();
+	const evalDate = month + ' ' + day + ', ' + year;
+	console.log(day);
+	console.log(evalDate);
+
+	if (!snapshot.exists) {
+		try {
+			await evalRef.set({
+				evals: [
+					{
+						results: {
+							level: results.currentLevel,
+							date: evalDate,
+						},
+					},
+				],
+			});
+		} catch (error) {
+			console.log('error catching data', error.message);
+		}
+	}
+
+	if (snapshot.exists) {
+		try {
+			await evalRef.update({
+				evals: firebase.firestore.FieldValue.arrayUnion({
+					results: {
+						level: results.currentLevel,
+						date: evalDate,
+					},
+				}),
+			});
+		} catch (error) {
+			console.log('error catching data', error.message);
+		}
+		return evalRef;
+	}
+};
+
 export const firestore = firebase.firestore();
 
 const googleProvider = new firebase.auth.GoogleAuthProvider();

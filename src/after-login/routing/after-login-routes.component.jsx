@@ -8,6 +8,7 @@ import AccountSettings from '../components/dashboard-components/account-settings
 import ProfilePicSettings from '../components/dashboard-components/profile-pic-settings/profile-pic.component';
 import PersonalSettings from '../components/dashboard-components/personal-settings/personal-settings.component';
 import { useUser } from '../../context/user-context';
+import Results from '../components/dashboard-components/results/results.component';
 
 const AfterLoginRoutes = () => {
 	const { userInfo } = useUser();
@@ -23,8 +24,8 @@ const AfterLoginRoutes = () => {
 			/>
 			<Route path="/dashboard/eval" component={Eval} />
 			<Route path="/dashboard/practice" component={Practice} />
-			{/* TODO Add resutls to firestore */}
-			{/*<Route path="/dashboard/results" component={Results} />*/}
+
+			<Route path="/dashboard/results" component={Results} />
 			<Route
 				path="/dashboard/account-settings"
 				component={AccountSettings}

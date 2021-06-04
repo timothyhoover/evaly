@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import img1 from '../../../assets/high-res/learn-more-hero.png';
 import img2 from '../../../assets/high-res/learn-more-main-1.png';
 import img3 from '../../../assets/high-res/learn-more-main-2.png';
@@ -18,7 +18,9 @@ const LearnMoreMain = () => (
 					<button className="btn-secondary">Get Started</button>
 				</Link>
 			</div>
-			<img src={img1} className="main-section-learn__img-1" alt="" />
+			<div className="main-section-learn__img-wrapper">
+				<img src={img1} className="main-section-learn__img-1" alt="" />
+			</div>
 		</div>
 
 		<div className="main-section-learn__row-2">

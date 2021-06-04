@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../../../context/auth-context';
-import { createUserProfileDocument } from '../../../../firebase.utils';
+import {
+	createUserProfileDocument,
+	userEvalResults,
+} from '../../../../firebase.utils';
 import './eval-quiz-final.styles.scss';
 
 const EvalQuizFinal = props => {
 	const { currentUser } = useAuth();
-
 	const englishLevelSetter = () => {
 		if (props.finalScore === props.quizLength) {
 			return 'C1';
@@ -34,6 +36,8 @@ const EvalQuizFinal = props => {
 			currentLevel: englishLevelSetter(),
 		});
 	};
+
+	userEvalResults(currentUser, { currentLevel: englishLevelSetter() });
 
 	return (
 		<div className="eval-final">
