@@ -19,6 +19,14 @@
 	&__content {
 		width: 38%;
 
+		@media only screen and (max-width: $bp-small) {
+			width: 100%;
+
+			h1 {
+				font-size: 4rem;
+			}
+		}
+
 		button {
 			padding: 1rem 12rem;
 			margin-top: 2.5rem;

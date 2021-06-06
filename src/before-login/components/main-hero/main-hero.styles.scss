@@ -46,6 +46,11 @@
 			@media only screen and (max-width: $bp-medium) {
 				text-align: left;
 			}
+
+			@media only screen and (max-width: $bp-small) {
+				text-align: left;
+				font-size: 3rem;
+			}
 		}
 
 		p {
@@ -59,17 +64,26 @@
 		@media only screen and (max-width: $bp-medium) {
 			margin-bottom: 4rem;
 		}
+
+		@media only screen and (max-width: $bp-small) {
+			width: 100%;
+			margin-bottom: 4rem;
+		}
 	}
 
 	&__icon {
 		position: absolute;
 		width: 13rem;
 		height: auto;
-		// margin-bottom: -4rem;
-		transform: translate(0, -43%);
+		transform: translate(0, -32%);
 
-		@media only screen and (max-width: $bp-large) {
+		@media only screen and (max-width: $bp-largest) {
 			transform: translate(0, -43%);
+		}
+
+		@media only screen and (max-width: $bp-small) {
+			width: 10rem;
+			transform: translate(0, -48%);
 		}
 	}
 
@@ -80,6 +94,12 @@
 
 		@media only screen and (max-width: $bp-medium) {
 			justify-content: center;
+		}
+
+		@media only screen and (max-width: $bp-small) {
+			button {
+				padding: 1rem;
+			}
 		}
 	}
 

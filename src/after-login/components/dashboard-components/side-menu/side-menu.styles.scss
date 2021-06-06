@@ -7,40 +7,38 @@
 	align-items: center;
 	background-color: #dff0ed;
 	height: 100%;
-	width: 15%;
+	width: 10%;
 	z-index: 800;
 
-	@media only screen and (max-width: $bp-large) {
-		position: fixed;
-		flex-direction: row;
-		height: 10%;
-		width: 100%;
-		justify-content: flex-start;
-		align-items: flex-end;
-		overflow: hidden;
+	&__logo-wrapper {
+		height: 6.8rem;
 	}
 
 	&__logo {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		height: 10%;
+		height: 100%;
 		width: 100%;
-		font-size: 3.8rem !important;
-		margin-bottom: 2rem;
+		font-size: 3rem !important;
 
-		@media only screen and (max-width: $bp-large) {
-			display: none;
+		&::before {
+			content: 'evaly';
+		}
+
+		@media only screen and (max-width: $bp-medium) {
+			&::before {
+				content: 'e';
+			}
 		}
 	}
 
 	&__tab {
 		display: flex;
-		justify-content: space-evenly;
+		justify-content: center;
 		align-items: center;
 		width: 100%;
-		height: 15%;
-		padding-right: 3rem;
+		height: 10rem;
 		cursor: pointer;
 		transition: all 0.2s;
 
@@ -58,15 +56,9 @@
 			border-left: solid 4px $color-primary-dark;
 			filter: brightness(95%);
 			outline: none;
-
-			@media only screen and (max-width: $bp-large) {
-				border-left: none;
-				border-bottom: solid 4px $color-primary-dark;
-			}
 		}
 
 		@media only screen and (max-width: $bp-large) {
-			height: 100%;
 			width: auto;
 			padding-right: 0;
 
@@ -77,22 +69,18 @@
 	}
 
 	&__icon {
-		height: 60%;
-		width: 28%;
+		width: 4rem;
+
+		@media only screen and (max-width: $bp-large) {
+			width: 40%;
+		}
 	}
 
 	&__icon--checkbox {
-		height: 60%;
-		width: 25%;
-	}
-
-	&__text {
-		font-size: 1.6rem;
-		width: 30%;
-		color: $color-blue-dark;
+		width: 3.5rem;
 
 		@media only screen and (max-width: $bp-large) {
-			display: none;
+			width: 35%;
 		}
 	}
 }

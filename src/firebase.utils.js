@@ -1,6 +1,7 @@
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
+import { v4 as uuidv4 } from 'uuid';
 
 const app = firebase.initializeApp({
 	apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -61,8 +62,6 @@ export const userEvalResults = async (userAuth, results) => {
 	const day = date.getDate();
 	const year = date.getFullYear();
 	const evalDate = month + ' ' + day + ', ' + year;
-	console.log(day);
-	console.log(evalDate);
 
 	if (!snapshot.exists) {
 		try {
@@ -72,6 +71,7 @@ export const userEvalResults = async (userAuth, results) => {
 						results: {
 							level: results.currentLevel,
 							date: evalDate,
+							id: uuidv4(),
 						},
 					},
 				],
@@ -88,14 +88,15 @@ export const userEvalResults = async (userAuth, results) => {
 					results: {
 						level: results.currentLevel,
 						date: evalDate,
+						id: uuidv4(),
 					},
 				}),
 			});
 		} catch (error) {
 			console.log('error catching data', error.message);
 		}
-		return evalRef;
 	}
+	return evalRef;
 };
 
 export const firestore = firebase.firestore();

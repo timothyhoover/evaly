@@ -6,13 +6,17 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="eval"
+        class="wrapper"
       >
-        <h1
-          class="eval__title"
+        <div
+          class="eval__title-wrapper"
         >
-          Let’s evaluate your current level
-        </h1>
+          <h1
+            class="eval__title"
+          >
+            Let’s evaluate your current level
+          </h1>
+        </div>
         <div
           class="eval__cards"
         >
@@ -135,13 +139,17 @@ Object {
   </body>,
   "container": <div>
     <div
-      class="eval"
+      class="wrapper"
     >
-      <h1
-        class="eval__title"
+      <div
+        class="eval__title-wrapper"
       >
-        Let’s evaluate your current level
-      </h1>
+        <h1
+          class="eval__title"
+        >
+          Let’s evaluate your current level
+        </h1>
+      </div>
       <div
         class="eval__cards"
       >

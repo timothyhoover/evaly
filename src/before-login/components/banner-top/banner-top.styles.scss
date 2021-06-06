@@ -8,6 +8,10 @@
 	margin-top: 8rem;
 	height: 30rem;
 
+	@media only screen and (max-width: $bp-small) {
+		height: 40rem;
+	}
+
 	&::after {
 		content: '';
 		position: absolute;
@@ -15,10 +19,14 @@
 		width: 100%;
 		background-image: url(../../../assets/high-res/banner-border.png);
 		background-repeat: no-repeat;
-		transform: translate(0, 40%);
+		transform: translate(0, 45%);
 
 		@media only screen and (max-width: $bp-medium) {
 			transform: translate(0, 38%);
+		}
+
+		@media only screen and (max-width: $bp-small) {
+			transform: translate(0, 50%);
 		}
 	}
 

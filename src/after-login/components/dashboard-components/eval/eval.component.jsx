@@ -1,12 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../../../assets/sprite.svg';
+import TabWrapper from '../tab-wrapper/tab-wrapper.component';
 import './eval.styles.scss';
 
 const Eval = () => {
 	return (
-		<div className="eval">
-			<h1 className="eval__title">Let’s evaluate your current level</h1>
+		<TabWrapper>
+			<div className="eval__title-wrapper">
+				<h1 className="eval__title">
+					Let’s evaluate your current level
+				</h1>
+			</div>
 			<div className="eval__cards">
 				<div className="eval__card">
 					<svg className="icon eval__card-icon">
@@ -52,7 +57,7 @@ const Eval = () => {
 					</Link>
 				</div>
 			</div>
-		</div>
+		</TabWrapper>
 	);
 };
 

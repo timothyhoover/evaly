@@ -7,6 +7,16 @@
 	width: 50%;
 	height: 30%;
 
+	button {
+		@media only screen and (max-width: $bp-small) {
+			padding: 1rem 2rem;
+		}
+	}
+
+	@media only screen and (max-width: $bp-large) {
+		width: 80%;
+	}
+
 	&__question-count {
 		p {
 			font-size: 2rem;

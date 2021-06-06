@@ -1,11 +1,14 @@
 import React from 'react';
 import sprite from '../../../../assets/sprite.svg';
+import TabWrapper from '../tab-wrapper/tab-wrapper.component';
 import './practice.styles.scss';
 
 const Practice = () => {
 	return (
-		<div className="practice">
-			<h1 className="practice__title">Pick a skill to master</h1>
+		<TabWrapper>
+			<div className="practice__title-wrapper">
+				<h1 className="practice__title">Pick a skill to master</h1>
+			</div>
 			<div className="practice__cards">
 				<div className="practice__card">
 					<svg className="icon practice__card-icon">
@@ -53,7 +56,7 @@ const Practice = () => {
 				</div>
 				<div className="spacer"></div>
 			</div>
-		</div>
+		</TabWrapper>
 	);
 };
 

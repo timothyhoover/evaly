@@ -6,6 +6,11 @@
 	align-items: center;
 	margin: 2rem 0;
 	width: 100%;
+	padding: 0 2rem;
+
+	@media only screen and (max-width: $bp-medium) {
+		padding: 0 5px;
+	}
 
 	&__logo {
 		font-family: $font-primary;
@@ -25,21 +30,34 @@
 		@media only screen and (max-width: $bp-largest) {
 			margin-right: 1rem;
 		}
+
+		@media only screen and (max-width: $bp-small) {
+			button {
+				padding: 1rem;
+			}
+		}
 	}
 
 	&__log-in {
 		margin-right: 3rem;
+		padding: 0;
 	}
 }
 
 .header-log-sign {
 	display: flex;
+	justify-content: space-between;
 	align-items: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
 	background-color: #fff;
 	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 	padding: 0.5rem 0;
-	height: 10vh;
+	height: 7rem;
 	width: 100%;
+	z-index: 100;
 
 	&__logo {
 		font-family: $font-primary;

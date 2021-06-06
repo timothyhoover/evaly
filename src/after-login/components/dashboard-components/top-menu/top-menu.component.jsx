@@ -32,11 +32,8 @@ const TopMenu = () => {
 
 	return (
 		<React.Fragment>
-			<div className="wrapper">
+			<div className="top-menu-wrapper">
 				<div className="top-menu">
-					<Link to="/dashboard">
-						<div className="logo top-menu__logo">evaly</div>
-					</Link>
 					<div className="top-menu__profile-wrapper">
 						<Navbar id="top-menu-profile">
 							<img

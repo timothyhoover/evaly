@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import sprite from '../../../../assets/sprite.svg';
 import { useAuth } from '../../../../context/auth-context';
 import { userEvalResults } from '../../../../firebase.utils';
@@ -8,8 +8,7 @@ const Results = () => {
 	const { currentUser } = useAuth();
 	const [results, setResults] = useState();
 
-	console.log(results);
-	const setUserResults = useCallback(async () => {
+	const setUserResults = async () => {
 		if (currentUser) {
 			const userRef = await userEvalResults(currentUser);
 			userRef.onSnapshot(doc => {
@@ -22,7 +21,7 @@ const Results = () => {
 		if (!currentUser) {
 			setResults(null);
 		}
-	}, [currentUser]);
+	};
 
 	useEffect(() => {
 		if (currentUser) {
@@ -32,15 +31,20 @@ const Results = () => {
 		if (!currentUser) {
 			setResults(null);
 		}
-	}, [currentUser, setUserResults]);
+
+		return () => {};
+	}, [currentUser]);
 
 	return (
 		<div className="results">
-			<h1 className="results__title">Results</h1>
+			<div className="results__title-wrapper">
+				<h1 className="results__title">Results</h1>
+			</div>
 			<div className="results__container">
 				<svg className="icon results__icon">
 					<use href={sprite + '#card-icon-trophy'}></use>
 				</svg>
+
 				<div className="results__card">
 					<div className="results__card-box">
 						<h3 className="results__card-title">Eval History</h3>
@@ -54,14 +58,26 @@ const Results = () => {
 								</thead>
 
 								<tbody className="results__card-table__body">
-									{results.evals
-										.map(({ results: { level, date } }) => (
-											<tr className="results__card-table__body-data">
-												<td>{date}</td>
-												<td>{level}</td>
-											</tr>
-										))
-										.reverse()}
+									{results.evals &&
+										results.evals
+											.map(
+												({
+													results: {
+														level,
+														date,
+														id,
+													},
+												}) => (
+													<tr
+														key={id}
+														className="results__card-table__body-data"
+													>
+														<td>{date}</td>
+														<td>{level}</td>
+													</tr>
+												)
+											)
+											.reverse()}
 								</tbody>
 							</table>
 						)}

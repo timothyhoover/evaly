@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import sprite from '../../../../assets/sprite.svg';
 import Results from '../results/results.component';
 import './side-menu.styles.scss';
@@ -13,7 +13,12 @@ const SideMenu = () => {
 
 	return (
 		<div className="side-menu">
-			<div className="logo side-menu__logo">evaly</div>
+			<div className="side-menu__logo-wrapper">
+				<Link to="/dashboard">
+					<div className="logo side-menu__logo"></div>
+				</Link>
+			</div>
+
 			<NavLink
 				exact
 				to="/dashboard"
@@ -23,7 +28,6 @@ const SideMenu = () => {
 				<svg className="icon side-menu__icon">
 					<use href={sprite + '#smart-home'}></use>
 				</svg>
-				<h3 className="side-menu__text">Home</h3>
 			</NavLink>
 			<NavLink
 				to="/dashboard/eval"
@@ -34,9 +38,8 @@ const SideMenu = () => {
 				<svg className="icon side-menu__icon">
 					<use href={sprite + '#clipboard-list'}></use>
 				</svg>
-				<h3 className="side-menu__text">Eval</h3>
 			</NavLink>
-			{/* TODO Add resutls to firestore */}
+
 			<NavLink
 				to="/dashboard/practice"
 				className="side-menu__tab"
@@ -45,7 +48,6 @@ const SideMenu = () => {
 				<svg className="icon side-menu__icon--checkbox">
 					<use href={sprite + '#checkbox'}></use>
 				</svg>
-				<h3 className="side-menu__text">Practice</h3>
 			</NavLink>
 
 			<NavLink
@@ -56,7 +58,6 @@ const SideMenu = () => {
 				<svg className="icon side-menu__icon">
 					<use href={sprite + '#presentation'}></use>
 				</svg>
-				<h3 className="side-menu__text">Results</h3>
 			</NavLink>
 		</div>
 	);

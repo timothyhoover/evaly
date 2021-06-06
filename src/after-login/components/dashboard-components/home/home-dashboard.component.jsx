@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import sprite from '../../../../assets/sprite.svg';
+import TabWrapper from '../tab-wrapper/tab-wrapper.component';
 import './home-dashboard.styles.scss';
 
 const HomeDashboard = ({ userInfo }) => {
 	const handleCurrentLevel = () => {
-		return !userInfo || userInfo.currentLevel === undefined ? (
-			<h1>Welcome! Start your eval to see your level</h1>
-		) : (
-			<h1>Current Level: {userInfo.currentLevel}</h1>
-		);
+		return !userInfo || userInfo.currentLevel === undefined
+			? 'Welcome! Start your eval to see your level'
+			: `Current Level: ${userInfo.currentLevel}`;
 	};
 
 	const handleCurrentLevelCard = () => {
@@ -19,9 +18,9 @@ const HomeDashboard = ({ userInfo }) => {
 	};
 
 	return (
-		<div className="home-dash">
+		<TabWrapper>
 			<div className="home-dash__title-wrapper">
-				<div className="home-dash__title">{handleCurrentLevel()}</div>
+				<h1 className="home-dash__title">{handleCurrentLevel()}</h1>
 			</div>
 			<div className="home-dash__cards">
 				<div className="home-dash__card-1">
@@ -57,7 +56,7 @@ const HomeDashboard = ({ userInfo }) => {
 					<div className="home-dash__coming-soon">Coming soon!</div>
 				</div>
 			</div>
-		</div>
+		</TabWrapper>
 	);
 };
 
