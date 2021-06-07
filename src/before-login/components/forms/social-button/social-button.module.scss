@@ -4,7 +4,7 @@
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
-	min-width: 10rem;
+	min-width: 11rem;
 	min-height: 4rem;
 	padding: 1rem 1rem;
 	color: $color-blue-dark;
@@ -19,10 +19,6 @@
 
 	&:hover {
 		box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.3);
-	}
-
-	@media only screen and (max-width: $bp-largest) {
-		min-width: 13rem;
 	}
 }
 
@@ -52,7 +48,6 @@
 }
 
 .icon_social {
-	margin-right: -1rem;
 	width: 1.4rem;
 	height: 1.4rem;
 	fill: #fff;
