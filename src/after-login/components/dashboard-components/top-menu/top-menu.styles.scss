@@ -8,6 +8,10 @@
 	position: fixed;
 	z-index: 900;
 
+	@media only screen and (max-width: $bp-small) {
+		width: 88%;
+	}
+
 	@media only screen and (max-width: $bp-medium) {
 		width: 92%;
 	}
@@ -75,7 +79,7 @@
 	height: auto;
 	background-color: transparent;
 	color: $color-blue-dark !important;
-	padding-right: 3rem;
+	padding-right: 5rem;
 	border: none;
 	font-size: 1.3rem;
 	cursor: pointer;
