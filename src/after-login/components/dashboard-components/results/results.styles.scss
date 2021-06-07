@@ -68,6 +68,10 @@
 			height: 35rem;
 			padding: 3rem;
 			background-color: $color-red-transparent;
+
+			&::after {
+				display: none;
+			}
 		}
 
 		&-title {

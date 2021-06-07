@@ -64,21 +64,33 @@
 	&__card-content-reading {
 		@include eval-cards;
 		background-color: $color-red-transparent;
+		position: relative;
+		overflow: hidden;
+
+		&::after {
+			display: none;
+		}
 	}
 
 	&__card-content-writing {
 		@include eval-cards;
 		background-color: $color-tertiary-transparent;
+		position: relative;
+		overflow: hidden;
 	}
 
 	&__card-content-listening {
 		@include eval-cards;
 		background-color: $color-secondary-transparent;
+		position: relative;
+		overflow: hidden;
 	}
 
 	&__card-content-speaking {
 		@include eval-cards;
 		background-color: $color-green-transparent;
+		position: relative;
+		overflow: hidden;
 	}
 
 	&__btn-box {

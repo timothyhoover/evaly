@@ -7,7 +7,7 @@
 	align-items: center;
 	background-color: #dff0ed;
 	height: 100%;
-	width: 10%;
+	width: 8rem;
 	z-index: 800;
 
 	&__logo-wrapper {
@@ -20,16 +20,10 @@
 		align-items: center;
 		height: 100%;
 		width: 100%;
-		font-size: 3rem !important;
+		font-size: 4rem !important;
 
 		&::before {
-			content: 'evaly';
-		}
-
-		@media only screen and (max-width: $bp-medium) {
-			&::before {
-				content: 'e';
-			}
+			content: 'e';
 		}
 	}
 

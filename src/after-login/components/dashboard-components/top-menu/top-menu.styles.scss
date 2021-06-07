@@ -3,10 +3,14 @@
 .top-menu-wrapper {
 	display: flex;
 	flex-direction: column;
-	width: 91%;
+	width: 95%;
 	height: 6.8rem;
 	position: fixed;
 	z-index: 900;
+
+	@media only screen and (max-width: $bp-medium) {
+		width: 92%;
+	}
 }
 
 .top-menu {
