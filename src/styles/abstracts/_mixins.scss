@@ -10,6 +10,10 @@
 	width: 75%;
 	height: 100%;
 	border-radius: 1.5rem;
+
+	@media only screen and (max-width: $bp-medium) {
+		width: 100%;
+	}
 }
 
 @mixin practice-cards {
@@ -21,6 +25,10 @@
 	border-radius: 1.5rem;
 	transition: ease-in 0.2s;
 	// cursor: pointer;
+
+	@media only screen and (max-width: $bp-medium) {
+		width: 100%;
+	}
 
 	&::after {
 		position: absolute;
