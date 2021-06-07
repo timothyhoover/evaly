@@ -21,6 +21,10 @@
 		width: 100%;
 		height: auto;
 		font-size: 2.5rem;
+
+		@media only screen and (max-width: $bp-medium) {
+			margin-bottom: 1rem;
+		}
 	}
 
 	&__input-wrapper {
