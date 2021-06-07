@@ -30,17 +30,34 @@ const TopMenu = () => {
 		setModal(!modal);
 	};
 
+	const handleProfilePic = () => {
+		if (!currentUser.photoURL) {
+			return (
+				<div className="top-menu__placeholder">
+					<span>img</span>
+				</div>
+			);
+		}
+
+		if (currentUser.photoURL) {
+			return (
+				<img
+					src={currentUser.photoURL}
+					alt="Profile"
+					className="profile-img"
+				/>
+			);
+		}
+	};
+
 	return (
 		<React.Fragment>
 			<div className="top-menu-wrapper">
 				<div className="top-menu">
 					<div className="top-menu__profile-wrapper">
 						<Navbar id="top-menu-profile">
-							<img
-								src={currentUser.photoURL}
-								alt="Profile"
-								className="profile-img"
-							/>
+							{handleProfilePic()}
+
 							<Navbar.Collapse>
 								<NavDropdown title={currentUser.displayName}>
 									<LinkContainer
